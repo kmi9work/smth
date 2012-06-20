@@ -1,0 +1,312 @@
+-----
+<p>
+	&nbsp;</p>
+<h2 style="font-family: sans-serif; font-size: 18px; color: rgb(82, 123, 189); margin: 1.2em 0px 0.5em; line-height: 1.3; text-align: left; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: silver; padding-top: 0.5em; ">
+	Содержание</h2>
+<div style="text-align: left; font-family: serif; margin-left: 0px; color: rgb(0, 0, 0); font-size: medium; ">
+	<ol style="margin-top: 0px; list-style-position: outside; ">
+		<li>
+			<p style="margin: 0px 5px 0.5em; padding: 5px; ">
+				Введение</p>
+		</li>
+		<li>
+			<p style="margin: 0px 5px 0.5em; padding: 5px; ">
+				Начало реформ.</p>
+		</li>
+		<li>
+			<p style="margin: 0px 5px 0.5em; padding: 5px; ">
+				Команда Гайдара и дальнейшее проведение реформ.</p>
+		</li>
+		<li>
+			<p style="margin: 0px 5px 0.5em; padding: 5px; ">
+				Приватизация</p>
+		</li>
+		<li>
+			<p style="margin: 0px 5px 0.5em; padding: 5px; ">
+				Итог</p>
+		</li>
+	</ol>
+</div>
+<h2 style="font-family: sans-serif; font-size: 18px; color: rgb(82, 123, 189); margin: 1.2em 0px 0.5em; line-height: 1.3; text-align: left; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: silver; padding-top: 0.5em; ">
+	Введение</h2>
+<div style="text-align: left; font-family: serif; margin-left: 0px; color: rgb(0, 0, 0); font-size: medium; ">
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Современное российское предпринимательство начало формироваться в конце 80х&thinsp;&mdash;&thinsp;90х годах во время ускоренной приватизации и перехода плановой советской экономики к рыночной.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Для формирования класса предпринимателей необходима фаза первоначального накопления капитала. Рассмотрим, как происходила эта фаза в конце существования Советского Союза.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Внимательный анализ перечня всех высокооплачиваемых профессий Советского Союза показывает, что законопослушный слой советских граждан, обладавших высокой и сверхвысокой способностью накапливать средства, вряд ли превышал тысячу человек. А совокупный потенциал накопления, безусловно, не превышал 1 миллиард рублей.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Между тем, для осуществления проекта построения капитализма в России нужно было ускоренно скупить основные фонды, стоившие гораздо больше триллиона рублей. Получается, что для формирования здорового капитализма в России и построения законопослушного класса предпринимателей было недостаточно ресурсов. У какой части населения эти ресурсы были? Это три категории:</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Первая &ndash; так называемые &quot;цеховики&quot;. Т.е. подпольные предприниматели в СССР. Это более-менее законопослушная категория. И хоть и вне закона, но что-то производящая. Категория малочисленная и крайне зависимая от номенклатуры.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Вторая категория &ndash; ничего не производящие спекулянты. В советском обществе существовала жесткая социальная регуляция цен. Поэтому любой советский торговец, решивший продавать свои товары хотя бы на рынке, имел огромную прибыль, ничего не создавая. Если первую категорию можно назвать темно-серой, то вторая уже относится к черной.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Третья категория &ndash; совсем уж черная &ndash; это воровские общаки.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Выводя за скобки более сложно построенные начальные капиталы (спецслужбистские в том числе), мы приходим к выводу, что осуществлённая приватизация была по определению криминальной. Но и выведенные нами за скобки более сложно построенные начальные капиталы тоже были криминальными.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Рассмотрим процесс перехода России к капитализму более подробно.</p>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+=====
+-----
+<p>
+	&nbsp;</p>
+<div>
+	Начало рыночных реформ</div>
+<div>
+	&nbsp;</div>
+<div>
+	Первыми шагами на пути к рыночной экономике ещё в Советском Союзе стали следующие три меры по введению &quot;рынка&quot;:</div>
+<div>
+	&nbsp;</div>
+<div>
+	Закон о совместных предприятиях с зарубежными инвесторами(13 января 1987г.). Этот закон позволял на законной основе выводить активы и прибыль за рубеж.</div>
+<div>
+	&nbsp;</div>
+<div>
+	Закон о госпредприятии(30 Июня 1987г.). Основными пунктами которого были: Снижение госзаказа, свободу в распоряжении прибыли и выборность директоров. Что привело к повышению зарплат, обрушению инвестиций в производство и повышение стоимости продукции.</div>
+<div>
+	&nbsp;</div>
+<div>
+	Закон о коопирациях(26 мая 1988г.). Приведший к росту объёма денег и уменьшению количества товаров. Т.е. к полному разбалансу спроса и предложения и, как следствие, к инфляции.</div>
+=====
+-----
+<p>
+	&nbsp;</p>
+<h2 style="font-family: Georgia, serif; font-size: 18px; color: rgb(153, 153, 153); margin: 20px 0px; line-height: 25px; text-align: left; ">
+	Наглядний пример</h2>
+<h4 style="font-family: Verdana, Helvetica, sans-serif; font-size: 10px; color: rgb(153, 153, 153); line-height: 15px; text-align: left; ">
+	<b>Апр. 23, 2012 | 11:41 pm</b></h4>
+<div class="entry-item" style="font-family: Georgia, serif; color: rgb(51, 51, 51); margin: 15px 0px; line-height: 15px; text-align: left; ">
+	<div>
+		<br />
+		Цитирую:<br />
+		<i>Как бы кого не устраивала политическая позиция Навального и Наганова, выступающих против пресловутого &laquo;перевалочного пункта&raquo; НАТО в Ульяновске, из этого никак не следует, что планируемая на Волге база НАТО - в интересах России.</i><br />
+		<br />
+		Верно, но следует ли из этой логике, что все, кто выступает против базы НАТО - являются патриотами страны, а не разыгрывают эту тему в своих интересах?<br />
+		<br />
+		Навальный и Наганов, написав что-то про базу НАТО, стали вне критики?<br />
+		<br />
+		Нельзя одновременно критиковать возможность появления базы НАТО и Навального?<br />
+		Для Крупнова все политическое пространство нашей страны сводится к любому болотному лубку &laquo;<a href="http://businessmsk.livejournal.com/141129.html" style="color: rgb(0, 180, 255); ">оранжевые</a>против власти&raquo;? Другой оппозиции нет?<br />
+		<a name="cutid1" style="color: rgb(0, 180, 255); text-decoration: underline; "></a><br />
+		<i>Навязанный стране выборный формат &laquo;оранжисты-антиоранжисты&raquo; уже нанёс стране и легитимности Владимира Путина гигантскую родовую травму.</i><br />
+		<br />
+		Стране навязывается формат &laquo;оранжисты-путинисты&raquo;, или Крупнов так записывает всех, кто против&nbsp;<a href="http://businessmsk.livejournal.com/141129.html" style="color: rgb(0, 180, 255); ">оранжевой революции</a>&nbsp;в сторонников власти? По факту навязывание формата &laquo;оранжисты-путинисты&raquo; привело не&nbsp;<i>&laquo;к гигантской родовой травме&raquo;</i>, а к резкому росту рейтинга Путина и его уверенной победе на выборах, так как, нравится это кому-то или нет, для народа России &laquo;Немцов&raquo; хуже Путина, а другого выбора патриотическая оппозиция нам почему-то упорно не предлагает, рах за разом ложась под движуху Немцова-Навального.&nbsp;<br />
+		<br />
+		В связи с этим возникает вопрос:&nbsp;<i>Не пора ли бросать этот тотальный низкопробный агитпроп и начинать тратить силы на созидание, на решение насущных позитивных задач?</i></div>
+</div>
+<p>
+	&nbsp;</p>
+=====
+-----
+<p>
+	&nbsp;</p>
+<h2 style="margin: 0px 0px 0.3em; padding: 0px; font-weight: normal; font-family: Georgia, 'Times New Roman', serif; font-size: 22px; line-height: 26px; text-align: left; color: rgb(50, 41, 30); ">
+	<a href="http://eot.su/node/12152" style="color: rgb(255, 0, 0); " title="Смысл игры - 22">Смысл игры - 22</a></h2>
+<p>
+	<span class="submitted" style="font-family: Verdana, serif; line-height: 14px; color: rgb(137, 137, 137); text-align: left; ">07.06.2012 - 05:45</span></p>
+<div class="content clear-block" style="font-family: 'Times New Roman', serif; font-size: 15px; line-height: 24px; text-align: justify; color: rgb(50, 41, 30); ">
+	<p style="margin: 0.6em 0px 1.2em; padding: 0px; ">
+		<iframe class="video-filter video-vimeo video-center vf-43575289" frameborder="0" height="225" src="http://player.vimeo.com/video/43575289" style="display: block; margin: 0px auto; " width="400"></iframe></p>
+	<p style="margin: 0.6em 0px 1.2em; padding: 0px; ">
+		<u>17 июня с.г. в 16:00 на пл. Революции в Москве</u><br />
+		Движение &quot;Суть времени&quot; организует митинг протеста ПРОТИВ ЛИБЕРАЛЬНОГО КУРСА ВЛАСТЕЙ РОССИИ</p>
+	<p style="margin: 0.6em 0px 1.2em; padding: 0px; ">
+		В том числе ПРОТИВ:</p>
+	<ul style="margin: 0.5em 0px 1em; padding-right: 0px; padding-left: 0px; ">
+		<li style="margin: 0.15em 0px 0.15em 0.5em; padding: 0px 0px 0.2em 1.5em; list-style-type: none; list-style-image: none; background-image: url(http://eot.su/sites/all/themes/eot/images/menu-leaf.gif); background-color: transparent; background-position: 1px 0.35em; background-repeat: no-repeat no-repeat; ">
+			внедрения ювенальных технологий;</li>
+		<li style="margin: 0.15em 0px 0.15em 0.5em; padding: 0px 0px 0.2em 1.5em; list-style-type: none; list-style-image: none; background-image: url(http://eot.su/sites/all/themes/eot/images/menu-leaf.gif); background-color: transparent; background-position: 1px 0.35em; background-repeat: no-repeat no-repeat; ">
+			вступления России в ВТО;</li>
+		<li style="margin: 0.15em 0px 0.15em 0.5em; padding: 0px 0px 0.2em 1.5em; list-style-type: none; list-style-image: none; background-image: url(http://eot.su/sites/all/themes/eot/images/menu-leaf.gif); background-color: transparent; background-position: 1px 0.35em; background-repeat: no-repeat no-repeat; ">
+			повышения тарифов ЖКХ;</li>
+		<li style="margin: 0.15em 0px 0.15em 0.5em; padding: 0px 0px 0.2em 1.5em; list-style-type: none; list-style-image: none; background-image: url(http://eot.su/sites/all/themes/eot/images/menu-leaf.gif); background-color: transparent; background-position: 1px 0.35em; background-repeat: no-repeat no-repeat; ">
+			новой волны приватизации.</li>
+	</ul>
+	<p style="margin: 0.6em 0px 1.2em; padding: 0px; ">
+		<b>ОСТАНОВИМ ЛИБЕРАЛЬНОГО МОНСТРА ИЛИ ОН ПОГУБИТ РОССИЮ!</b></p>
+	<p style="margin: 0.6em 0px 1.2em; padding: 0px; ">
+		<u>Ссылка на youtube и файлы, а также источники - в полной версии новости.</u></p>
+</div>
+<p>
+	&nbsp;</p>
+=====
+-----
+<p>
+	&nbsp;</p>
+<h2 style="font-family: sans-serif; font-size: 18px; color: rgb(82, 123, 189); margin: 1.2em 0px 0.5em; line-height: 1.3; text-align: left; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: silver; padding-top: 0.5em; ">
+	Содержание</h2>
+<div style="text-align: left; font-family: serif; margin-left: 0px; color: rgb(0, 0, 0); font-size: medium; ">
+	<ol style="margin-top: 0px; list-style-position: outside; ">
+		<li>
+			<p style="margin: 0px 5px 0.5em; padding: 5px; ">
+				Введение</p>
+		</li>
+		<li>
+			<p style="margin: 0px 5px 0.5em; padding: 5px; ">
+				Начало реформ.</p>
+		</li>
+		<li>
+			<p style="margin: 0px 5px 0.5em; padding: 5px; ">
+				Команда Гайдара и дальнейшее проведение реформ.</p>
+		</li>
+		<li>
+			<p style="margin: 0px 5px 0.5em; padding: 5px; ">
+				Приватизация</p>
+		</li>
+		<li>
+			<p style="margin: 0px 5px 0.5em; padding: 5px; ">
+				Итог</p>
+		</li>
+	</ol>
+</div>
+<h2 style="font-family: sans-serif; font-size: 18px; color: rgb(82, 123, 189); margin: 1.2em 0px 0.5em; line-height: 1.3; text-align: left; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: silver; padding-top: 0.5em; ">
+	Введение</h2>
+<div style="text-align: left; font-family: serif; margin-left: 0px; color: rgb(0, 0, 0); font-size: medium; ">
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Современное российское предпринимательство начало формироваться в конце 80х&thinsp;&mdash;&thinsp;90х годах во время ускоренной приватизации и перехода плановой советской экономики к рыночной.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Для формирования класса предпринимателей необходима фаза первоначального накопления капитала. Рассмотрим, как происходила эта фаза в конце существования Советского Союза.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Внимательный анализ перечня всех высокооплачиваемых профессий Советского Союза показывает, что законопослушный слой советских граждан, обладавших высокой и сверхвысокой способностью накапливать средства, вряд ли превышал тысячу человек. А совокупный потенциал накопления, безусловно, не превышал 1 миллиард рублей.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Между тем, для осуществления проекта построения капитализма в России нужно было ускоренно скупить основные фонды, стоившие гораздо больше триллиона рублей. Получается, что для формирования здорового капитализма в России и построения законопослушного класса предпринимателей было недостаточно ресурсов. У какой части населения эти ресурсы были? Это три категории:</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Первая &ndash; так называемые &quot;цеховики&quot;. Т.е. подпольные предприниматели в СССР. Это более-менее законопослушная категория. И хоть и вне закона, но что-то производящая. Категория малочисленная и крайне зависимая от номенклатуры.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Вторая категория &ndash; ничего не производящие спекулянты. В советском обществе существовала жесткая социальная регуляция цен. Поэтому любой советский торговец, решивший продавать свои товары хотя бы на рынке, имел огромную прибыль, ничего не создавая. Если первую категорию можно назвать темно-серой, то вторая уже относится к черной.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Третья категория &ndash; совсем уж черная &ndash; это воровские общаки.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Выводя за скобки более сложно построенные начальные капиталы (спецслужбистские в том числе), мы приходим к выводу, что осуществлённая приватизация была по определению криминальной. Но и выведенные нами за скобки более сложно построенные начальные капиталы тоже были криминальными.</p>
+	</div>
+	<div>
+		<p style="margin: 0.5em 5px; padding: 5px; ">
+			Рассмотрим процесс перехода России к капитализму более подробно.</p>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+=====
+-----
+<p>
+	&nbsp;</p>
+<div>
+	Начало рыночных реформ</div>
+<div>
+	&nbsp;</div>
+<div>
+	Первыми шагами на пути к рыночной экономике ещё в Советском Союзе стали следующие три меры по введению &quot;рынка&quot;:</div>
+<div>
+	&nbsp;</div>
+<div>
+	Закон о совместных предприятиях с зарубежными инвесторами(13 января 1987г.). Этот закон позволял на законной основе выводить активы и прибыль за рубеж.</div>
+<div>
+	&nbsp;</div>
+<div>
+	Закон о госпредприятии(30 Июня 1987г.). Основными пунктами которого были: Снижение госзаказа, свободу в распоряжении прибыли и выборность директоров. Что привело к повышению зарплат, обрушению инвестиций в производство и повышение стоимости продукции.</div>
+<div>
+	&nbsp;</div>
+<div>
+	Закон о коопирациях(26 мая 1988г.). Приведший к росту объёма денег и уменьшению количества товаров. Т.е. к полному разбалансу спроса и предложения и, как следствие, к инфляции.</div>
+=====
+-----
+<p>
+	&nbsp;</p>
+<h2 style="font-family: Georgia, serif; font-size: 18px; color: rgb(153, 153, 153); margin: 20px 0px; line-height: 25px; text-align: left; ">
+	Наглядний пример</h2>
+<h4 style="font-family: Verdana, Helvetica, sans-serif; font-size: 10px; color: rgb(153, 153, 153); line-height: 15px; text-align: left; ">
+	<b>Апр. 23, 2012 | 11:41 pm</b></h4>
+<div class="entry-item" style="font-family: Georgia, serif; color: rgb(51, 51, 51); margin: 15px 0px; line-height: 15px; text-align: left; ">
+	<div>
+		<br />
+		Цитирую:<br />
+		<i>Как бы кого не устраивала политическая позиция Навального и Наганова, выступающих против пресловутого &laquo;перевалочного пункта&raquo; НАТО в Ульяновске, из этого никак не следует, что планируемая на Волге база НАТО - в интересах России.</i><br />
+		<br />
+		Верно, но следует ли из этой логике, что все, кто выступает против базы НАТО - являются патриотами страны, а не разыгрывают эту тему в своих интересах?<br />
+		<br />
+		Навальный и Наганов, написав что-то про базу НАТО, стали вне критики?<br />
+		<br />
+		Нельзя одновременно критиковать возможность появления базы НАТО и Навального?<br />
+		Для Крупнова все политическое пространство нашей страны сводится к любому болотному лубку &laquo;<a href="http://businessmsk.livejournal.com/141129.html" style="color: rgb(0, 180, 255); ">оранжевые</a>против власти&raquo;? Другой оппозиции нет?<br />
+		<a name="cutid1" style="color: rgb(0, 180, 255); text-decoration: underline; "></a><br />
+		<i>Навязанный стране выборный формат &laquo;оранжисты-антиоранжисты&raquo; уже нанёс стране и легитимности Владимира Путина гигантскую родовую травму.</i><br />
+		<br />
+		Стране навязывается формат &laquo;оранжисты-путинисты&raquo;, или Крупнов так записывает всех, кто против&nbsp;<a href="http://businessmsk.livejournal.com/141129.html" style="color: rgb(0, 180, 255); ">оранжевой революции</a>&nbsp;в сторонников власти? По факту навязывание формата &laquo;оранжисты-путинисты&raquo; привело не&nbsp;<i>&laquo;к гигантской родовой травме&raquo;</i>, а к резкому росту рейтинга Путина и его уверенной победе на выборах, так как, нравится это кому-то или нет, для народа России &laquo;Немцов&raquo; хуже Путина, а другого выбора патриотическая оппозиция нам почему-то упорно не предлагает, рах за разом ложась под движуху Немцова-Навального.&nbsp;<br />
+		<br />
+		В связи с этим возникает вопрос:&nbsp;<i>Не пора ли бросать этот тотальный низкопробный агитпроп и начинать тратить силы на созидание, на решение насущных позитивных задач?</i></div>
+</div>
+<p>
+	&nbsp;</p>
+=====
+-----
+<p>
+	&nbsp;</p>
+<h2 style="margin: 0px 0px 0.3em; padding: 0px; font-weight: normal; font-family: Georgia, 'Times New Roman', serif; font-size: 22px; line-height: 26px; text-align: left; color: rgb(50, 41, 30); ">
+	<a href="http://eot.su/node/12152" style="color: rgb(255, 0, 0); " title="Смысл игры - 22">Смысл игры - 22</a></h2>
+<p>
+	<span class="submitted" style="font-family: Verdana, serif; line-height: 14px; color: rgb(137, 137, 137); text-align: left; ">07.06.2012 - 05:45</span></p>
+<div class="content clear-block" style="font-family: 'Times New Roman', serif; font-size: 15px; line-height: 24px; text-align: justify; color: rgb(50, 41, 30); ">
+	<p style="margin: 0.6em 0px 1.2em; padding: 0px; ">
+		<iframe class="video-filter video-vimeo video-center vf-43575289" frameborder="0" height="225" src="http://player.vimeo.com/video/43575289" style="display: block; margin: 0px auto; " width="400"></iframe></p>
+	<p style="margin: 0.6em 0px 1.2em; padding: 0px; ">
+		<u>17 июня с.г. в 16:00 на пл. Революции в Москве</u><br />
+		Движение &quot;Суть времени&quot; организует митинг протеста ПРОТИВ ЛИБЕРАЛЬНОГО КУРСА ВЛАСТЕЙ РОССИИ</p>
+	<p style="margin: 0.6em 0px 1.2em; padding: 0px; ">
+		В том числе ПРОТИВ:</p>
+	<ul style="margin: 0.5em 0px 1em; padding-right: 0px; padding-left: 0px; ">
+		<li style="margin: 0.15em 0px 0.15em 0.5em; padding: 0px 0px 0.2em 1.5em; list-style-type: none; list-style-image: none; background-image: url(http://eot.su/sites/all/themes/eot/images/menu-leaf.gif); background-color: transparent; background-position: 1px 0.35em; background-repeat: no-repeat no-repeat; ">
+			внедрения ювенальных технологий;</li>
+		<li style="margin: 0.15em 0px 0.15em 0.5em; padding: 0px 0px 0.2em 1.5em; list-style-type: none; list-style-image: none; background-image: url(http://eot.su/sites/all/themes/eot/images/menu-leaf.gif); background-color: transparent; background-position: 1px 0.35em; background-repeat: no-repeat no-repeat; ">
+			вступления России в ВТО;</li>
+		<li style="margin: 0.15em 0px 0.15em 0.5em; padding: 0px 0px 0.2em 1.5em; list-style-type: none; list-style-image: none; background-image: url(http://eot.su/sites/all/themes/eot/images/menu-leaf.gif); background-color: transparent; background-position: 1px 0.35em; background-repeat: no-repeat no-repeat; ">
+			повышения тарифов ЖКХ;</li>
+		<li style="margin: 0.15em 0px 0.15em 0.5em; padding: 0px 0px 0.2em 1.5em; list-style-type: none; list-style-image: none; background-image: url(http://eot.su/sites/all/themes/eot/images/menu-leaf.gif); background-color: transparent; background-position: 1px 0.35em; background-repeat: no-repeat no-repeat; ">
+			новой волны приватизации.</li>
+	</ul>
+	<p style="margin: 0.6em 0px 1.2em; padding: 0px; ">
+		<b>ОСТАНОВИМ ЛИБЕРАЛЬНОГО МОНСТРА ИЛИ ОН ПОГУБИТ РОССИЮ!</b></p>
+	<p style="margin: 0.6em 0px 1.2em; padding: 0px; ">
+		<u>Ссылка на youtube и файлы, а также источники - в полной версии новости.</u></p>
+</div>
+<p>
+	&nbsp;</p>
+=====

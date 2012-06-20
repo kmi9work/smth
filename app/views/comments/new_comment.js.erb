@@ -1,0 +1,1 @@
+$('#comment_<%= @parent.id %>').append('<%= escape_javascript(render :partial => "form", :locals => { :parent => @parent }) %>');

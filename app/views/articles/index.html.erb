@@ -1,0 +1,46 @@
+<h1>Listing articles</h1>
+
+<h1><font color="red">Signed: <%= signed_in? %></font></h1>
+
+<div id="selected_tgroups">
+  <% @selected_tgroups.each do |tgroup| %>
+    <div id="tgroup<%= tgroup.id %>" class="tgroup selected" style="background: #<%= (tgroup.name.hash % 0xffffff).to_s(16) %>">
+      <%= link_to tgroup.name, '/' %>
+      <%= link_to image_tag("arrow_up.png", :height => "20px"), articles_path(:order_by => :asc) %>
+      <%= link_to image_tag("arrow_down.png", :height => "20px"), articles_path(:order_by => :desc) %>
+    </div>
+  <% end %>
+  <div id="reset_tgroup_selection">
+    <%= link_to 'clear', reset_tgroup_selection_path unless @selected_tgroups.empty? %>
+  </div>
+</div>
+
+<div class="articles inline">
+  <% @articles.each do |article| %>
+    <h2><%= link_to article.name, article %></h2>
+    <%#= article.rating_id %>
+    <div class="tags">
+      <% article.tags.each do |tag| %>
+        <div id="tag<%= tag.id %>" class="tag" style="background: #<%= (tag.tgroup.name.hash % 0xffffff).to_s(16) %>">
+          <%= tag.name %>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to 'Edit', edit_article_path(article) %>
+    <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
+  <% end %>
+  </table>
+</div>
+
+<div id="tgroups" class="inline">
+  <% @tgroups.each do |tgroup| %>
+    <div id="tgroup<%= tgroup.id %>" class="tgroup" style="background: #<%= (tgroup.name.hash % 0xffffff).to_s(16) %>">
+      <%= link_to tgroup.name, select_tgroup_path(tgroup) %>
+    </div>
+  <% end %>
+</div>
+
+
+<br />
+
+<%= link_to 'New Article', new_article_path %>

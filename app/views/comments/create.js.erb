@@ -1,0 +1,7 @@
+$("#newcomment").html(' \
+<div class="comment_content"> \
+  <%= escape_javascript @comment.content %> \
+</div> \
+<div class="comment_button"> \
+  <%= escape_javascript( link_to("comment it", new_comment_comment_path(@comment.id), :remote => true)) %> \
+</div>').attr("id", "comment_<%= @comment.id %>").attr("class", "comment");

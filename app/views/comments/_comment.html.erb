@@ -1,0 +1,8 @@
+<div id="comment_<%= comment.id %>", class="comment">
+  <div class="comment_content"><%= comment.content %></div>
+  <div class="comment_button">
+    <%= link_to 'comment it', new_comment_comment_path(comment.id), :remote => true %>
+    <%= link_to 'Destroy', comment, confirm: 'Are you sure?', method: :delete, :remote => true %>
+  </div>
+  <%= render :partial => 'comments/comment', :collection => comment.children %>
+</div>

@@ -1,0 +1,36 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.inline{
+  display: inline-block;
+}
+
+.tgroup{
+  padding: 5px;
+  border: 1px solid green;
+  border-radius: 10px;
+}
+
+.selected{
+  display: inline-block;
+}
+
+#reset_tgroup_selection{
+  display: inline-block;
+  top: 0px;
+  background: red;
+}
+
+.tags{
+  border: 1px solid blue;
+  border-radius: 10px;
+}
+
+.tag{
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  display: inline-block;
+}

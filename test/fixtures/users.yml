@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  data: MyText
+  email: foo@gmail.com
+  encrypted_password: $2a$10$0.BMo8JDnNa9zfr.YJtUOu0TU3V.Q1rZgOqiptWyjZaz0lUFVvzJG
+
+two:
+  name: MyString
+  data: MyText
+  email: bar@gmail.com
+  encrypted_password: $2a$10$ReMEyHmQUZeMRJVR0zYB5Omuxl8AXhbDu8R/gfaI0KHGtYguGJE8e

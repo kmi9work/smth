@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+  <h2><%= @article.name %></h2>
+
+<div class="content">
+  <%= raw @article.content %>
+  <div class="comment_button"><%= link_to 'comment it', new_comment_article_path(@article.id), :remote => true %></div>
+</div>
+
+<p>
+  <b>Rating:</b>
+  <%= @article.rating_id %>
+</p>
+
+<div class="tags">
+  <% @article.tags.each do |tag| %>
+    <div id="tag<%= tag.id %>" class="tag">
+      <%= tag.name %>
+      <%= link_to "x", article_tag_delete_path(@article, tag) %>
+    </div>
+  <% end %>
+</div>
+
+<div id="comments" class="comments">
+  <%= render :partial => "comments/comment", :collection => @article.comments %>
+</div>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

@@ -1,0 +1,12 @@
+<div id="newcomment">
+  <%= form_for @comment, :remote => true do |f| %>
+    <div class="field">
+      <%= "Содержание" %><br />
+      <%= f.text_area :content, :class => 'comment_area' %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <%= hidden_field_tag "#{parent.class.to_s.downcase}_parent", parent.id %>
+  <% end %>
+</div>
