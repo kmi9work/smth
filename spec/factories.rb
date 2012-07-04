@@ -10,13 +10,13 @@ FactoryGirl.define do
     end
   end
   
-  factory :tgroup do
-    sequence(:name){|n| "Tag group #{n}"}
+  factory :filter do
+    sequence(:name){|n| "Criterion group #{n}"}
   end
   
-  factory :tag do
-    sequence(:name){|n| "Tag #{n}"}
-    tgroup
+  factory :criterion do
+    sequence(:name){|n| "Criterion #{n}"}
+    filter
   end
   
   factory :article do

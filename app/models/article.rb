@@ -4,73 +4,55 @@ class Article < ActiveRecord::Base
   attr_accessible :content, :name, :rating_id
  
   has_many :comments, :dependent => :destroy
-  
-  has_and_belongs_to_many :tags
-  
+  has_and_belongs_to_many :criterions
   has_one :rating, :dependent => :destroy
-  
   belongs_to :user
+  acts_as_taggable
+  acts_as_taggable_on :other_tags
   
-  # def Article.tgroup_articles tgroups
-  #     tgroups.each do |tgroup|
+  # def Article.filter_articles filters
+  #     filters.each do |filter|
   #       
   #     end
   #     $stdout.puts "1=============================="
-  #     Article.joins(:tags).where(['tags.tgroup_id = ?', tgroup.id])
+  #     Article.joins(:criterions).where(['criterions.filter_id = ?', filter.id])
   #   end
   
-  def Article.tgroup_articles ids, order_by
+  def Article.intersected_articles filters
+    
+  end
+  
+  def Article.filter_articles ids
     query = nil
-    as = "a"
-    order_by = "desc" unless order_by.to_s == "desc" or order_by.to_s == "asc"
-    ids.each do |id|
-      unless query
-        query = "SELECT DISTINCT \"articles\".* FROM \"articles\"
-        INNER JOIN \"articles_tags\" ON \"articles_tags\".\"article_id\" = \"articles\".\"id\" 
-        INNER JOIN \"tags\" ON \"tags\".\"id\" = \"articles_tags\".\"tag_id\" 
-        WHERE \"tags\".\"tgroup_id\" = ?"
+    order_by = nil
+    ids.each do |id, ob|
+      if ob == "desc" or ob == "asc"
+        order_by = ob 
       else
-        query = "Select DISTINCT \"#{as}\".* FROM (
+        order_by = "desc"
+      end
+      unless query
+        query = "SELECT a.id
+        from articles a
+        inner join articles_criterions at on at.article_id = a.id
+        inner join criterions t on t.id = at.criterion_id
+        where t.filter_id = ?
+        order by t.name #{order_by}"
+      else
+        query = "select a.id from articles a
+        inner join articles_criterions at on at.article_id = a.id
+        inner join criterions t on t.id = at.criterion_id
+        where a.id IN (
         #{query}
-        ) as \"#{as}\" INNER JOIN \"articles_tags\" ON \"articles_tags\".\"article_id\" = \"#{as}\".\"id\" 
-        INNER JOIN \"tags\" ON \"tags\".\"id\" = \"articles_tags\".\"tag_id\" 
-        WHERE tags.tgroup_id = ?"
-        as.next!
+        ) and t.filter_id = ?
+        ORDER BY t.name #{order_by}"
       end
     end
-    query += " ORDER BY \"tags\".\"name\" #{order_by.to_s}"
-    Article.find_by_sql([query, *ids])
-  end
-  
-  def Article.tga id1, id2
-    Article.find_by_sql(['Select DISTINCT "a".* FROM (
-      SELECT "articles".* FROM "articles"
-      INNER JOIN "articles_tags" ON "articles_tags"."article_id" = "articles"."id" 
-      INNER JOIN "tags" ON "tags"."id" = "articles_tags"."tag_id" 
-      WHERE tags.tgroup_id = ?
-    ) as a INNER JOIN "articles_tags" ON "articles_tags"."article_id" = "a"."id" 
-    INNER JOIN "tags" ON "tags"."id" = "articles_tags"."tag_id" 
-    WHERE tags.tgroup_id = ?', id1, id2])
-  end
-  
-  def Article.tga1 id
-    Article.find_by_sql(['SELECT DISTINCT "articles".* FROM "articles"
-    INNER JOIN "articles_tags" ON "articles_tags"."article_id" = "articles"."id" 
-    INNER JOIN "tags" ON "tags"."id" = "articles_tags"."tag_id" 
-    WHERE tags.tgroup_id = ?', id])
-  end
-  def tgroup_articles tgroup
-    $stdout.puts "2==============================="
-    self.joins(:tags).where(['tags.tgroup_id = ?', tgroup.id])
-  end
-  
-  def Article.tgroup_articles_sorted tgroup, order
-    o = order.to_s
-    return nil unless o == 'desc' or o == 'asc'
-    my_articles = []
-    tgroup.tags.order("name #{o}").each do |tag|
-      my_articles += tag.articles
-    end
-    my_articles
+    query = "select distinct a.* from articles a
+    inner join articles_criterions at on at.article_id = a.id
+    inner join criterions t on t.id = at.criterion_id
+    where a.id IN ( #{query} )    
+    order by name #{order_by}"
+    Article.find_by_sql([query, *ids.map{|id| id[0] }])
   end
 end

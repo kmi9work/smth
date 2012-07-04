@@ -6,7 +6,7 @@
   display: inline-block;
 }
 
-.tgroup{
+.filter{
   padding: 5px;
   border: 1px solid green;
   border-radius: 10px;
@@ -16,21 +16,49 @@
   display: inline-block;
 }
 
-#reset_tgroup_selection{
+#reset_filter_selection{
   display: inline-block;
   top: 0px;
   background: red;
 }
 
-.tags{
+.criterions{
   border: 1px solid blue;
   border-radius: 10px;
 }
 
-.tag{
+.criterion{
   padding: 5px;
   margin: 2px;
   border: 1px solid gray;
   border-radius: 10px;
   display: inline-block;
+}
+
+#articles{
+  max-width: 700px;
+}
+
+ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #999;
+  cursor: default;
+  li {
+    background-color: #FFF;
+    border-top: solid 1px #DDD;
+    margin: 0;
+    padding: 0;
+    a {
+      color: #000;
+      background-color: #fff;
+      display: block;
+      padding: 3px;
+    }
+    a.ui-state-hover, a.ui-state-active {
+      background-color: #FFFCB2;
+    }
+  }
 }

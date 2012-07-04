@@ -6,6 +6,7 @@ gem 'rails', '3.2.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem "devise"
+gem 'gon'
 
 gem "will_paginate"
 gem 'jquery-rails'
@@ -15,7 +16,8 @@ gem "mini_magick"
 
 gem 'acts_as_tree_rails3'
 
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'pg'
 gem "ckeditor"#, "~> 3.7.1"
 gem 'acts-as-taggable-on'#, '~> 2.2.2'
 

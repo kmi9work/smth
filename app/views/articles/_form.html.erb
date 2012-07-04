@@ -20,11 +20,10 @@
     <%#      = f.text_area :content %>
     <%= f.cktext_area :content, :toolbar => 'Full', :width => 800, :height => 400 %>
   </div>
-  <div class = "field">
-    <%= f.label :rating_id %><br />
-    <%= f.number_field :rating_id %>
+  <a href="" id="add_criterion_link">add criterions</a>
+  <div id="add_criterions">
   </div>
   <div class = "actions">
-    <%= f.submit %>
+    <%= f.submit "Создать"%>
   </div>
 <% end %>

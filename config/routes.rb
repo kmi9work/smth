@@ -1,8 +1,14 @@
 Altereot::Application.routes.draw do
   
-  match 'article/:id/tag/:tag_id/delete' => 'articles#tag_delete', :as => :article_tag_delete
-  match 'reset_tgroup_selection' => 'articles#reset_tgroup_selection', :as => :reset_tgroup_selection
-  match 'select_tgroup/:tgroup_id' => 'articles#select_tgroup', :as => :select_tgroup
+  match 'autocomplete_criterion/:filter_id.json' => 'articles#autocomplete_criterion', :as => :autocomplete_criterion
+  
+  match 'article/:id/criterion/:criterion_id/delete' => 'articles#criterion_delete', :as => :article_criterion_delete
+  match 'reset_filter_selection' => 'articles#reset_filter_selection', :as => :reset_filter_selection
+  match 'select_filter/:filter_id' => 'articles#select_filter', :as => :select_filter
+  match 'articles_sort/:index/:order_by' => 'articles#articles_sort', :as => :articles_sort
+  match 'delete_filter_selection/:index' => 'articles#delete_filter_selection', :as => :delete_filter_selection
+  
+  match 'add_criterion/:num' => 'articles#add_criterion', :as => :add_criterion
   
   match 'comment_article/new.js/:parent_article' => 'comments#new', :as => :new_comment_article
   match 'comment_comment/new.js/:parent_comment' => 'comments#new', :as => :new_comment_comment
@@ -19,7 +25,7 @@ Altereot::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  resources :articles
+  resources :articles 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

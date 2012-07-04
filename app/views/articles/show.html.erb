@@ -12,11 +12,11 @@
   <%= @article.rating_id %>
 </p>
 
-<div class="tags">
-  <% @article.tags.each do |tag| %>
-    <div id="tag<%= tag.id %>" class="tag">
-      <%= tag.name %>
-      <%= link_to "x", article_tag_delete_path(@article, tag) %>
+<div class="criterions">
+  <% @article.criterions.each do |criterion| %>
+    <div id="criterion<%= criterion.id %>" class="criterion">
+      <%= criterion.name %>
+      <%= link_to "x", article_criterion_delete_path(@article, criterion) %>
     </div>
   <% end %>
 </div>

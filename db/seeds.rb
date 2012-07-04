@@ -8,7 +8,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 @words = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'.split()
-@tgroup_hash = {'газета' => ['Коммерсант', 'Ведомости', 'Завтра', 'Комсомольская правда'], 
+@filter_hash = {'газета' => ['Коммерсант', 'Ведомости', 'Завтра', 'Комсомольская правда'], 
                 'статья' => ['Нельзя допустить, чтобы воины превратились в торговцев', 
                              'Медведев и развитие',
                              'Кризис и другие',
@@ -54,27 +54,29 @@ puts "Articles: #{narticles}"
 
 #TAGS
 
-@tgroups = []
+@filters = []
 ntg, nt = 0, 0
-@tags = []
-@tgroup_hash.each do |key, names|
-  tg = Tgroup.create(:name => key)
+@criterions = []
+@filter_hash.each do |key, names|
+  tg = Filter.create(:name => key)
   names.each do |name|
-    t = Tag.new(:name => name)
-    t.tgroup = tg
+    t = Criterion.new(:name => name)
+    t.filter = tg
     t.save 
     nt += 1
-    @tags << t
+    @criterions << t
   end
-  @tgroups << tg
+  @filters << tg
   ntg += 1
 end
 
 (nt*2).times do
-  @articles[rand(narticles)].tags << @tags[rand(nt)]
+  t = @criterions[rand(nt)]
+  articles_num = rand(narticles)
+  @articles[articles_num].criterions << t if @articles[articles_num].criterions.where(:filter_id => t.filter_id).empty?
 end
 
-puts "Tgroups: #{ntg}\nTags: #{nt}"
+puts "Filters: #{ntg}\nCriterions: #{nt}"
 
 #COMMENTS
 
