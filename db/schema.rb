@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(:version => 20120625165426) do
     t.text     "content"
     t.integer  "rating_id"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.date     "last_comment_at"
+    t.date     "original_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "articles_criterions", :id => false, :force => true do |t|

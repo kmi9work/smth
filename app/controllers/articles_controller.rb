@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
   
   def select_filter
     session[:selected_filters] << [params[:filter_id], params["order_by"] ? params["order_by"].to_s : "desc"] #change
-    session[:filter_sorting] = [params[:filter_id], params["order_by"] ? params["order_by"].to_s : "desc"]
+    session[:filter_sorting] = [params[:filter_id].to_i, params["order_by"] ? params["order_by"].to_s : "desc"]
     redirect_to '/articles'
   end
   
@@ -60,7 +60,15 @@ class ArticlesController < ApplicationController
   end
   
   def delete_filter_selection
-    session[:selected_filters].delete_at(params[:index].to_i)
+    #delete criterion_ids
+    filter_order_by = session[:selected_filters].delete_at(params[:index].to_i)
+    f = Filter.find(filter_order_by[0])
+    if session[:filter_sorting][0] == f.id
+      session[:filter_sorting] = nil
+    end
+    f.criterions.each do |criterion|
+      session[:criterion_ids].delete(criterion.id)
+    end
     redirect_to '/articles'
   end
   
