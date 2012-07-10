@@ -1,0 +1,10 @@
+===== 2012-07-09 19:23:05: Задание 'altereot_dropbox': СИНХРОНИЗАЦИЮ запустил User на компьютере 'iMac' =====
+altereot_dropbox: /Users/MichaelKostekchuk/Sites/altereot [cookies] -verified-PropDels-> /Users/MichaelKostekchuk/Dropbox/Something/altereot [cookies], SavePrevVers=30d, TmpDest, EstReq, CopyLocked, FileLinksDrill, CaseSens, Reconnect=3, CopyCreateTime
+Скопировано поверх '/Users/MichaelKostekchuk/Sites/altereot/app/assets/stylesheets/articles.css.scss' -> '/Users/MichaelKostekchuk/Dropbox/Something/altereot/app/assets/stylesheets/articles.css.scss'
+Скопировано поверх '/Users/MichaelKostekchuk/Sites/altereot/app/controllers/articles_controller.rb' -> '/Users/MichaelKostekchuk/Dropbox/Something/altereot/app/controllers/articles_controller.rb'
+Скопировано поверх '/Users/MichaelKostekchuk/Sites/altereot/app/views/articles/index.html.erb' -> '/Users/MichaelKostekchuk/Dropbox/Something/altereot/app/views/articles/index.html.erb'
+Сохраняю файл состояний /Users/MichaelKostekchuk/Sites/altereot/_gsdata_/_file_state._gs
+Сохраняю файл состояний /Users/MichaelKostekchuk/Dropbox/Something/altereot/_gsdata_/_file_state._gs
+Синхронизировано: 3, Ошибок: 0
+===== 2012-07-09 19:23:05: Синхронизация завершена. Время 00:00:01, Скорость:  файлов/сек =====
+

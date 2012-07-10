@@ -6,12 +6,6 @@
   display: inline-block;
 }
 
-.filter{
-  padding: 5px;
-  border: 1px solid green;
-  border-radius: 10px;
-}
-
 .selected{
   display: inline-block;
 }
@@ -22,21 +16,34 @@
   background: red;
 }
 
-.criterions{
-  border: 1px solid blue;
-  border-radius: 10px;
-}
+
 
 .criterion{
-  padding: 5px;
   margin: 2px;
-  border: 1px solid gray;
-  border-radius: 10px;
   display: inline-block;
+}
+
+.criterions_filter ul li.selected{
+  background: #ccc;
 }
 
 #articles{
   max-width: 700px;
+}
+
+#criterions ul {
+  position: relative;
+  list-style: none;
+  li {
+    a {
+      color: #000;
+      display: block;
+      padding: 1px 3px;
+    }
+    a.hover, a.active {
+      background-color: #FFFCB2;
+    }
+  }
 }
 
 ul.ui-autocomplete {

@@ -5,7 +5,9 @@ class CreateArticles < ActiveRecord::Migration
       t.text :content
       t.integer :rating_id
       t.integer :user_id
-
+      
+      t.date :last_comment_at
+      t.date :original_at
       t.timestamps
     end
   end

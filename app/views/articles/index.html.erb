@@ -1,50 +1,62 @@
-<font color="red" size="5">Signed: <%= signed_in? %></font>
-
-<div id="selected_filters">
+<%= content_for :selected_filters do%>
   <% @selected_filters.each_with_index do |filter_order_by, i| %>
-    <% filter = filter_order_by[0] 
-       order_by = filter_order_by[1]%>
-    
-    <div id="filter<%= filter.id %>" class="filter selected" style="background: #<%= (filter.name.hash % 0xffffff).to_s(16) %>">
-      <%= link_to filter.name, delete_filter_selection_path(i) %>
-      <% if order_by == "desc" %>
-        <%= link_to image_tag("arrow_up.png", :height => "20px"), articles_sort_path(:index => i, :order_by => :asc) %>
-      <% else %>
-        <%= link_to image_tag("arrow_down.png", :height => "20px"), articles_sort_path(:index => i, :order_by => :desc) %>
+      <% filter = filter_order_by[0] 
+         order_by = filter_order_by[1]%>
+
+      <div id="filter<%= filter.id %>" class="filter selected" style="background: #<%= (filter.name.hash % 0xffffff).to_s(16) %>">
+        <%= link_to filter.name, delete_filter_selection_path(i) %>
+        <% if order_by == "desc" %>
+          <%= link_to image_tag("arrow_up.png", :height => "10px"), filter_sort_path(:index => i, :order_by => :asc) %>
+        <% else %>
+          <%= link_to image_tag("arrow_down.png", :height => "10px"), filter_sort_path(:index => i, :order_by => :desc) %>
+        <% end %>
+      </div>
+    <% end %>
+    <div id="reset_filter_selection">
+      <%= link_to 'clear', reset_filter_selection_path unless @selected_filters.empty? %>
+    </div>
+<% end %>
+
+<%= content_for :articles do %>
+  <% @articles.each do |article| %>
+    <h3 class="inline"><%= link_to article.name, article %></h3>
+    <font size="1">
+      <%= link_to 'Edit', edit_article_path(article) %>
+      <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
+    </font>
+    <%#= article.rating_id %>
+    <div class="criterions">
+      <% article.criterions.each do |criterion| %>
+      <div id="criterion<%= criterion.id %>" class="criterion" style="background: #<%= (criterion.filter.name.hash % 0xffffff).to_s(16) %>">
+        <%= criterion.name %>
+      </div>
       <% end %>
     </div>
   <% end %>
-  <div id="reset_filter_selection">
-    <%= link_to 'clear', reset_filter_selection_path unless @selected_filters.empty? %>
-  </div>
-</div>
-
-<div id="filters">
-  ФИЛЬТРЫ
-  
-</div>
-<div id="articles" class="inline">
-  <% @articles.each do |article| %>
-  <h2><%= link_to article.name, article %></h2>
-  <%#= article.rating_id %>
-  <div class="criterions">
-    <% article.criterions.each do |criterion| %>
-    <div id="criterion<%= criterion.id %>" class="criterion" style="background: #<%= (criterion.filter.name.hash % 0xffffff).to_s(16) %>">
-      <%= criterion.name %>
+<% end %>
+<%= content_for :filters do %>
+  <div id="filters" class="inline">
+    <% @filters.each do |filter| %>
+    <div id="filter<%= filter.id %>" class="filter" style="background: #<%= (filter.name.hash % 0xffffff).to_s(16) %>">
+      <%= link_to filter.name, select_filter_path(filter) %>
     </div>
     <% end %>
   </div>
-  <%= link_to 'Edit', edit_article_path(article) %>
-  <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
-  <% end %>
-</table>
-</div>
+<% end %>
 
-<div id="filters" class="inline">
-  <% @filters.each do |filter| %>
-  <div id="filter<%= filter.id %>" class="filter" style="background: #<%= (filter.name.hash % 0xffffff).to_s(16) %>">
-    <%= link_to filter.name, select_filter_path(filter) %>
-  </div>
+<%= content_for :criterions do %>
+  <% @selected_filters.each_with_index do |filter_order_by, i| %>
+    <% filter, order_by = filter_order_by[0], filter_order_by[1]%>
+    <div id="criterions_filter_<%= filter.id %>" class="criterions_filter inline">
+      <ul>
+        <% filter.criterions.each do |criterion| %>
+          <% if session[:criterion_ids].include?(criterion.id)  %>
+            <li class="selected"><%= link_to criterion.name, criterion_choose_path(criterion.id) %></li>
+          <% else %>
+            <li><%= link_to criterion.name, criterion_choose_path(criterion.id) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
-</div>
-
+<% end %>

@@ -1,12 +1,14 @@
 Altereot::Application.routes.draw do
-  
   match 'autocomplete_criterion/:filter_id.json' => 'articles#autocomplete_criterion', :as => :autocomplete_criterion
   
   match 'article/:id/criterion/:criterion_id/delete' => 'articles#criterion_delete', :as => :article_criterion_delete
+  
+  match 'date_sort/:date_type(/:order_by)' => 'articles#date_sort', :as => :date_sort
+  match 'criterion_choose/:criterion_id' => 'articles#criterion_choose', :as => :criterion_choose
   match 'reset_filter_selection' => 'articles#reset_filter_selection', :as => :reset_filter_selection
   match 'select_filter/:filter_id' => 'articles#select_filter', :as => :select_filter
-  match 'articles_sort/:index/:order_by' => 'articles#articles_sort', :as => :articles_sort
-  match 'delete_filter_selection/:index' => 'articles#delete_filter_selection', :as => :delete_filter_selection
+  match 'filter_sort/:index/:order_by' => 'articles#filter_sort', :as => :filter_sort
+  match 'delete_filter_selection/:index' => 'articles#delete_filter_selection', :as => :delete_filter_selection ###???
   
   match 'add_criterion/:num' => 'articles#add_criterion', :as => :add_criterion
   

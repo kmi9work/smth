@@ -3,16 +3,15 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @filters = Filter.all
-    if session[:selected_filters] and !session[:selected_filters].empty?
-      @articles = Article.filter_articles(session[:selected_filters])
-    else
-      session[:selected_filters] = []
-      @articles = Article.all
-    end
+    # @articles = Article.all
+    puts "======================="
+    puts "criterion_ids: #{session[:criterion_ids].inspect}"
+    puts "filter_sorting: #{session[:filter_sorting].inspect}"
+    puts "date_sorting: #{session[:date_sorting].inspect}"
+    puts "------------------------"
+    @articles = Article.filter_by(session[:criterion_ids], session[:filter_sorting], session[:date_sorting])   
+    session[:selected_filters] ||= [] 
     @selected_filters = session[:selected_filters].map{|st| [Filter.find(st[0]), st[1]]}
-    puts "--------------"
-    p @selected_filters
-    puts "=============="
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }
@@ -20,12 +19,43 @@ class ArticlesController < ApplicationController
   end
   
   def select_filter
-    session[:selected_filters] << [params[:filter_id], params["order_by"] ? params["order_by"].to_s : "desc"]
+    session[:selected_filters] << [params[:filter_id], params["order_by"] ? params["order_by"].to_s : "desc"] #change
+    session[:filter_sorting] = [params[:filter_id], params["order_by"] ? params["order_by"].to_s : "desc"]
     redirect_to '/articles'
   end
   
+  def filter_sort
+    session[:selected_filters][params[:index].to_i][1] = params[:order_by].to_s #if only one filter, than delete string and change upper
+    session[:filter_sorting][1] = params[:order_by].to_s
+    redirect_to '/articles'
+  end
+  
+  def date_sort
+    if Article::DATE_TYPES.include?(params[:date_type].to_s)
+      session[:date_sorting] = [params[:date_type].to_s, params["order_by"] ? params["order_by"].to_s : "desc"]
+    end
+    redirect_to '/articles'
+  end
+  
+  def criterion_choose
+    session[:criterion_ids] ||= []
+    criterion_id = params[:criterion_id].to_i
+    unless session[:criterion_ids].include?(criterion_id)
+      session[:criterion_ids] << criterion_id
+    else
+      session[:criterion_ids].delete(criterion_id)
+    end
+    redirect_to '/articles'
+  end
+  
+  def reset_date_sort
+    session[:date_sorting] = nil #created_at, updated_at, last_comment_at, original_at
+    redirect_to '/articles'
+  end
   def reset_filter_selection
     session[:selected_filters] = []
+    session[:criterion_ids] = []
+    session[:filter_sorting] = nil
     redirect_to '/articles'
   end
   
@@ -34,10 +64,7 @@ class ArticlesController < ApplicationController
     redirect_to '/articles'
   end
   
-  def articles_sort
-    session[:selected_filters][params[:index].to_i][1] = params[:order_by].to_s
-    redirect_to '/articles'
-  end
+  
   # GET /articles/1
   # GET /articles/1.json
   def show
