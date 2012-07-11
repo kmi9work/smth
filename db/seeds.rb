@@ -24,60 +24,94 @@
 end
 
 puts "Users: #{@users.size}"
+# 
+# #ARTICLES
+# 
+# f = File.new("lib/data/data.txt", "r")
+# @contents = []
+# while f.gets
+#   if $_.strip == "-----"
+#     s = "" 
+#     next
+#   end
+#   if $_.strip == "====="
+#     @contents << s 
+#     next
+#   end
+#   s += $_
+# end
+# narticles = @contents.size
+# f.close
+# 
+# @articles = []
+# narticles.times do |i|
+#   a = Article.new(:name => "#{@words[rand(@words.size)].capitalize} #{Array.new(rand(5)){@words[rand(@words.size)]}.join(" ")}", :content => @contents[i])
+#   a.user = @users[rand(@users.size)]
+#   a.save
+#   @articles << a
+# end
+# 
+# puts "Articles: #{narticles}"
+# 
+# #CRITERIONS
+# 
+# @filters = []
+# ntg, nt = 0, 0
+# @criterions = []
+# @filter_hash.each do |key, names|
+#   tg = Filter.create(:name => key)
+#   names.each do |name|
+#     t = Criterion.new(:name => name)
+#     t.filter = tg
+#     t.save 
+#     nt += 1
+#     @criterions << t
+#   end
+#   @filters << tg
+#   ntg += 1
+# end
+# 
+# (nt*2).times do
+#   t = @criterions[rand(nt)]
+#   articles_num = rand(narticles)
+#   @articles[articles_num].criterions << t if @articles[articles_num].criterions.where(:filter_id => t.filter_id).empty?
+# end
+# 
+# puts "Filters: #{ntg}\nCriterions: #{nt}"
 
-#ARTICLES
-
-f = File.new("lib/data/data.txt", "r")
-@contents = []
-while f.gets
-  if $_.strip == "-----"
-    s = "" 
-    next
-  end
-  if $_.strip == "====="
-    @contents << s 
-    next
-  end
-  s += $_
-end
-narticles = @contents.size
-f.close
-
+#FULL ARTICLES
 @articles = []
-narticles.times do |i|
-  a = Article.new(:name => "#{@words[rand(@words.size)].capitalize} #{Array.new(rand(5)){@words[rand(@words.size)]}.join(" ")}", :content => @contents[i])
-  a.user = @users[rand(@users.size)]
-  a.save
-  @articles << a
-end
-
-puts "Articles: #{narticles}"
-
-#CRITERIONS
-
-@filters = []
-ntg, nt = 0, 0
-@criterions = []
-@filter_hash.each do |key, names|
-  tg = Filter.create(:name => key)
-  names.each do |name|
-    t = Criterion.new(:name => name)
-    t.filter = tg
-    t.save 
-    nt += 1
-    @criterions << t
+f = File.new("lib/data/articles.txt", "r")
+while f.gets
+  while f.gets.strip != "====="
+    if $_.strip == "-----"
+      article = Article.new
+    elsif $_.strip == "name:"
+      article.name = ""
+      while f.gets.strip != "="
+        article.name += $_.chomp
+      end
+    elsif $_.strip == "content:"
+      article.content = ""
+      while f.gets.strip != "="
+        article.content += $_
+      end
+    elsif $_.strip == "filter:"
+      filt = Filter.find_or_create_by_name(f.gets.strip)
+    elsif $_.strip == "criterion:"
+      criterion = Criterion.find_or_create_by_name(f.gets.strip)
+      criterion.filter = filt unless criterion.filter
+      criterion.save
+      article.criterions << criterion
+    elsif $_.strip == "user_id:"
+      user = User.find(f.gets.strip)
+      article.user = user
+    end
   end
-  @filters << tg
-  ntg += 1
+  article.save
+  @articles << article
 end
-
-(nt*2).times do
-  t = @criterions[rand(nt)]
-  articles_num = rand(narticles)
-  @articles[articles_num].criterions << t if @articles[articles_num].criterions.where(:filter_id => t.filter_id).empty?
-end
-
-puts "Filters: #{ntg}\nCriterions: #{nt}"
+f.close
 
 #COMMENTS
 
@@ -88,8 +122,8 @@ while f.gets
 end
 f.close
 
-
-ncomments = rand(*4)
+narticles = @articles.size
+ncomments = rand(narticles*4)
 
 @top_comments = []
 (narticles*2).times do |i|

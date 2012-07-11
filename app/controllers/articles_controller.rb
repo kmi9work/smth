@@ -63,7 +63,7 @@ class ArticlesController < ApplicationController
     #delete criterion_ids
     filter_order_by = session[:selected_filters].delete_at(params[:index].to_i)
     f = Filter.find(filter_order_by[0])
-    if session[:filter_sorting][0] == f.id
+    if session[:filter_sorting] and session[:filter_sorting][0] == f.id
       session[:filter_sorting] = nil
     end
     f.criterions.each do |criterion|
@@ -124,7 +124,7 @@ class ArticlesController < ApplicationController
       params[:criterions].each do |num, criterion_attributes|
         #ADD FOR DATA
         t = Criterion.find_or_create_by_name(criterion_attributes[:name])
-        t.filter = Filter.find(criterion_attributes[:filter_id])
+        t.filter = Filter.find(criterion_attributes[:filter_id]) unless t.filter
         t.save
         @article.criterions << t
       end
