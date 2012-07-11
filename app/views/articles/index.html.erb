@@ -53,7 +53,7 @@
     <div id="criterions_filter_<%= filter.id %>" class="criterions_filter inline">
       <ul>
         <% filter.criterions.each do |criterion| %>
-          <% if session[:criterion_ids].include?(criterion.id)  %>
+          <% if session[:criterion_ids] and session[:criterion_ids].include?(criterion.id)  %>
             <li class="selected"><%= link_to criterion.name, criterion_choose_path(criterion.id) %></li>
           <% else %>
             <li><%= link_to criterion.name, criterion_choose_path(criterion.id) %></li>
