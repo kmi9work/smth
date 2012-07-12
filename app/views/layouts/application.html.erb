@@ -44,9 +44,10 @@
     </div>
   </div>
   <div id="footer">
-    <div id="ololo">
-      
-    </div>
+    <%= link_to "First", "http://vk.com/write202504" %>
+    <%= link_to "Second", "http://vk.com/write846061" %>
+    <%= link_to "Third", "http://vk.com/write19756683" %>
+    <%= link_to "Fourth", "http://vk.com/write11253144" %>
     <script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript"></script>
 
     <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
@@ -64,9 +65,8 @@
         alert('not auth');
       }
     }
-    VK.api("users.get", {uids:"3196537"}, function(data) { 
-        $("#ololo").html(data);
-    });
+    
+    VK.Auth.getLoginStatus(authInfo);
     VK.UI.button('login_button');
     </script>
   </div>
