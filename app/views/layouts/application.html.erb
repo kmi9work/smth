@@ -44,10 +44,14 @@
     </div>
   </div>
   <div id="footer">
+    <div id="ololo">
+      
+    </div>
     <script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript"></script>
 
     <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
-
+    
+    <p></p>
     <script language="javascript">
     VK.init({
       apiId: 3033796
@@ -55,11 +59,14 @@
     function authInfo(response) {
       if (response.session) {
         alert('user: '+response.session.mid);
+        if ()
       } else {
         alert('not auth');
       }
     }
-    VK.Auth.getLoginStatus(authInfo);
+    VK.api("users.get", {uids:"3196537"}, function(data) { 
+        $("#ololo").html(data);
+    });
     VK.UI.button('login_button');
     </script>
   </div>
