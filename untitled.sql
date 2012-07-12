@@ -129,6 +129,22 @@ order by cc.name
 ;
   
   
+select * from articles a
+INNER JOIN articles_criterions ac ON ac.article_id = a.id 
+INNER JOIN criterions c ON c.id = ac.criterion_id
+where c.filter_id = 5
+order by a.id
+;
+
+select * from articles a
+INNER JOIN articles_criterions ac ON ac.article_id = a.id 
+INNER JOIN criterions c ON c.id = ac.criterion_id
+where a.id in (
+  select a.id from articles a
+) and c.filter_id = 4 
+order by c.name desc
+;
+  
   
   
   
