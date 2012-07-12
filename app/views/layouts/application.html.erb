@@ -60,13 +60,12 @@
     function authInfo(response) {
       if (response.session) {
         alert('user: '+response.session.mid);
-        if ()
       } else {
         alert('not auth');
       }
     }
     
-    VK.Auth.getLoginStatus(authInfo);
+    alert(VK.Auth.getLoginStatus(authInfo));
     VK.UI.button('login_button');
     </script>
   </div>
