@@ -95,14 +95,14 @@ class Article < ActiveRecord::Base
     if filter_sorting
       query = sort_sql_by_filter(query, filter_sorting[0], filter_sorting[1])
       if date_sorting
-        query += ", #{ActiveRecord::Base.connection.quote(date_sorting[0])} #{ActiveRecord::Base.connection.quote(date_sorting[1])}" 
+        query += ", #{date_sorting[0]} #{date_sorting[1]}" 
       end
     else
       if date_sorting
         query = "select articles.* from articles where articles.id in (
         #{query}
         ) 
-        order by #{ActiveRecord::Base.connection.quote(date_sorting[0])} #{ActiveRecord::Base.connection.quote(date_sorting[1])}"
+        order by #{date_sorting[0]} #{date_sorting[1]}"
       else
         query = "select articles.* from articles where articles.id in (
         #{query}

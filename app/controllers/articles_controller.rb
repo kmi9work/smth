@@ -32,7 +32,9 @@ class ArticlesController < ApplicationController
   
   def date_sort
     if Article::DATE_TYPES.include?(params[:date_type].to_s)
-      session[:date_sorting] = [params[:date_type].to_s, params["order_by"] ? params["order_by"].to_s : "desc"]
+      order_by = "desc"
+      order_by = "asc" if params["order_by"].to_s == "asc"
+      session[:date_sorting] = [params[:date_type].to_s, order_by]
     end
     redirect_to '/articles'
   end

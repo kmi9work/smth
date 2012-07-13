@@ -34,7 +34,9 @@
         <%= criterion.name %>
       </div>
       <% end %>
+      <font size="1"> <%= article.created_at.strftime("%d.%m %H:%M:%S") %> </font>
     </div>
+    
   <% end %>
 <% end %>
 <%= content_for :filters do %>
@@ -45,6 +47,9 @@
     </div>
     <% end %>
   </div>
+  Сортировка по дате создания: <br>
+  <%= link_to image_tag("arrow_up.png", :height => "20px"), date_sort_path('created_at', 'asc') %>
+  <%= link_to image_tag("arrow_down.png", :height => "20px"), date_sort_path('created_at', 'desc') %>
 <% end %>
 
 <%= content_for :criterions do %>
