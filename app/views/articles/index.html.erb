@@ -1,6 +1,16 @@
 <%= content_for :leftside do %>
+  <div id="all_filters_criterions" class="criterions_filter">
+    <% @all_filters_criterions.each do |filter, criterions| %>
+      <p style="font-weight: bold"><%= filter %></p>
+      <ul>
+        <% criterions.each do |criterion| %>
+          <li style="margin-left: 5px; margin-top: 5px"><%= criterion[1] %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
   <%= render 'criterions' %>
-  <div id="articles" style="width: <%= 850 - @selected_filters.size * 114%>px">
+  <div id="articles" style="width: <%= 850 -(@selected_filters.size + 1) * 114%>px">
     <%= render 'articles' %>
   </div>
   
@@ -8,7 +18,9 @@
 
 
 <%= content_for :selected_filters do%>
-  
+  <div id="none" class="filter selected">
+    Выбраные:
+  </div>
   <% @selected_filters.each_with_index do |filter_order_by, i| %>
       <% filter = filter_order_by[0] %>
 

@@ -89,9 +89,9 @@ class Article < ActiveRecord::Base
   #   Article.sort_sql_by_filter('SELECT "articles".* FROM "articles"', filter_sorting[0], filter_sorting[1])
   # end
   
-  def Article.filter_by criterion_ids, filter_sorting, date_sorting
+  def Article.filter_by all_filters_criterions, filter_sorting, date_sorting
     query = "SELECT articles.id from articles"
-    query = intersect_criterions_sql(criterion_ids) if criterion_ids and !criterion_ids.empty?
+    query = intersect_criterions_sql(all_filters_criterions) if all_filters_criterions and !all_filters_criterions.empty?
     if filter_sorting
       query = sort_sql_by_filter(query, filter_sorting[0], filter_sorting[1])
       if date_sorting
@@ -112,16 +112,26 @@ class Article < ActiveRecord::Base
     Article.find_by_sql(query)
   end 
 private
-  def Article.intersect_criterions_sql criterion_ids
-    if criterion_ids.size > 0
+  def Article.intersect_criterions_sql all_filters_criterions
+    if all_filters_criterions.size > 0
       query = " select a.id from articles a\n"
-      criterion_ids.size.times{|i| query += " inner join articles_criterions ac#{"c"*i} on a.id = ac#{"c"*i}.article_id\n"}
+      i = 0
+      p all_filters_criterions
+      all_filters_criterions.each do |filter, criterions|
+        criterions.size.times{query += " inner join articles_criterions ac#{"c"*i} on a.id = ac#{"c"*i}.article_id\n"; i += 1}
+      end
       query += " where "
       i = -1
-      query += criterion_ids.map do |id|
-        i += 1
-        "ac#{'c'*i}.criterion_id = #{ActiveRecord::Base.connection.quote(id)}"
+      query += all_filters_criterions.map do |filter, criterions|
+        "( " + criterions.map do |criterion| 
+          i += 1
+          "ac#{'c'*i}.criterion_id = #{ActiveRecord::Base.connection.quote(criterion[0])}"
+        end.join(" or ") + " )"
       end.join(" and ")
+      # query += all_filters_criterions.map do |id|
+      #         i += 1
+      #         "ac#{'c'*i}.criterion_id = #{ActiveRecord::Base.connection.quote(id)}"
+      #       end.join(" and ")
       return query
     else
       return nil
@@ -136,9 +146,10 @@ private
     INNER JOIN criterions c ON c.id = ac.criterion_id
     where a.id in (
     #{sql}
-    ) and c.filter_id = #{ActiveRecord::Base.connection.quote(filter)} 
+    )
     order by c.name #{order}
     "
+    # c.filter_id = #{ActiveRecord::Base.connection.quote(filter)} 
   end
 =begin
 if session[:criterion_ids] and !session[:criterion_ids].empty?

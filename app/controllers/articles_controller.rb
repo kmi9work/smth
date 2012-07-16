@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   before_filter :find_filters
   def index
     # @articles = Article.all
+    
     session[:selected_filters] ||= []
     session[:criterion_ids] ||= []
     puts "======================="
@@ -11,7 +12,13 @@ class ArticlesController < ApplicationController
     puts "filter_sorting: #{session[:filter_sorting].inspect}"
     puts "date_sorting: #{session[:date_sorting].inspect}"
     puts "------------------------"
-    @articles = Article.filter_by(session[:criterion_ids], session[:filter_sorting], session[:date_sorting])   
+    @all_filters_criterions = {}
+    session[:criterion_ids].each do |id|
+      c = Criterion.find(id)
+      @all_filters_criterions[c.filter.name] ||= []
+      @all_filters_criterions[c.filter.name] << [id, c.name]
+    end
+    @articles = Article.filter_by(@all_filters_criterions, session[:filter_sorting], session[:date_sorting])   
     session[:selected_filters] ||= [] 
     @selected_filters = session[:selected_filters].map{|st| [Filter.find(st[0]), st[1]]}
     respond_to do |format|
@@ -21,7 +28,17 @@ class ArticlesController < ApplicationController
   end
   
   def select_filter
-    session[:selected_filters] << [params[:filter_id], params["order_by"] ? params["order_by"].to_s : "desc"] #change
+    if session[:selected_filters].size >= session[:criterion_ids].size + 2
+      
+    elsif session[:selected_filters].size >= session[:criterion_ids].size + 1
+      
+    end
+    
+    if index = session[:selected_filters].index{|i| i[0] == params[:filter_id].to_i}
+      session[:selected_filters].delete_at(index)
+    else
+      session[:selected_filters] << [params[:filter_id].to_i, params["order_by"] ? params["order_by"].to_s : "desc"] #change
+    end
     session[:filter_sorting] = [params[:filter_id].to_i, params["order_by"] ? params["order_by"].to_s : "desc"]
     redirect_to '/articles'
   end
