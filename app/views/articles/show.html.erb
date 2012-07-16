@@ -1,3 +1,5 @@
+<%= content_for :leftside do %>
+<div id="articles" class='inline'>
 <p id="notice"><%= notice %></p>
 
   <h2><%= @article.name %></h2>
@@ -12,7 +14,7 @@
   <%= @article.rating_id %>
 </p>
 
-<div class="criterions">
+<div class="criterions" style="background: #ddd">
   <% @article.criterions.each do |criterion| %>
     <div id="criterion<%= criterion.id %>" class="criterion">
       <%= criterion.name %>
@@ -21,6 +23,8 @@
   <% end %>
 </div>
 
+<font size="4">Комментарии:</font>
+
 <div id="comments" class="comments">
   <%= render :partial => "comments/comment", :collection => @article.comments %>
 </div>
@@ -28,3 +32,19 @@
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+</div>
+<div id="rightside" class='inline'>
+  <div id="user_nav" class="inline">
+    <% if current_user %>
+    Logged in as <%= current_user.email %>.
+    <%= link_to "Log out", logout_path %>
+    <% else %>
+    <%= link_to "Register", register_path %> or
+    <%= link_to "log in", login_path %>
+    <% end %>
+  </div>
+  <div id="new_article" class="inline">
+    <%= link_to 'New Article', new_article_path %>
+  </div>
+</div>
+<% end %>

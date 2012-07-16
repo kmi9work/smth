@@ -1,14 +1,98 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$width: 1000px;
+$height: 760px;
 
-.inline{
+// MAIN DIVS
+#header{
+  width: $width;
+  height: 80px;
+  background: #ddd;
+}
+
+#logo{
+  width: $width - 80px;
+}
+#star{
+  display: inline-block;
+  vertical-align: top;
+  left: $width - 70px;
+  width: 70px;
+  height: 70px;
+  float:right;
+}
+
+#navbar{
+  height: 16px;
+  width: $width;
+  a{
+    margin-left: 10px;
+  }
+}
+
+#main{
+  width: $width;
+  height: $height;
+  border: 1px solid black;
+}
+
+#leftside{
+  vertical-align: top;
+  float: left;
+  display: inline-block;
+  width: $width - 160px;
+  height: 100%;
+  border-right: 2px solid #999;
+}
+
+#rightside{
+  float: right;
+  vertical-align: top;
+  display: inline-block;
+  width: 150px;
+  left: $width - 150px;
+  height: 100%;
+}
+
+.criterions_filter{
+  float: left;
+  vertical-align: top;
+  display: inline-block; 
+  width: 100px;
+  height: 100%;
+  top: 0px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-right: 2px solid #999;
+  ul li.selected{
+    background: #ccc;
+  }
+}
+
+#articles{
+  overflow-x: hidden;
+  float: left;
+  vertical-align: top;
+  display: inline-block;
+  top: 0px;
+  height: 100%;
+  overflow: auto;
+}
+
+/// MAIN DIVS
+
+// ARTICLE
+
+.article_criterion{
   display: inline-block;
 }
 
-.selected{
-  display: inline-block;
+#article_criterions{
+  
 }
+
+
 
 #reset_filter_selection{
   display: inline-block;
@@ -16,20 +100,32 @@
   color: red;
 }
 
-
-
-.criterion{
-  margin: 2px;
+#selected_filters{
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  width: $width;
+  background: #fff;
+  height: 20px;
+  .filter{
+    border-right: 2px solid red;
+  }
+}
+.filter{
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  a{
+    color: #950114;
+  }
+}
+.selected{
   display: inline-block;
+  float: left;
 }
 
-.criterions_filter ul li.selected{
-  background: #ccc;
-}
 
-#articles{
-  max-width: 700px;
-}
+
 
 #criterions ul {
   position: relative;

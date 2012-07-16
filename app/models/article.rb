@@ -113,9 +113,19 @@ class Article < ActiveRecord::Base
   end 
 private
   def Article.intersect_criterions_sql criterion_ids
-    criterion_ids.map{|id| "select a.id from articles a 
-    inner join articles_criterions ac on a.id = ac.article_id 
-    where ac.criterion_id = #{ActiveRecord::Base.connection.quote(id)}"}.join(" INTERSECT ")
+    if criterion_ids.size > 0
+      query = " select a.id from articles a\n"
+      criterion_ids.size.times{|i| query += " inner join articles_criterions ac#{"c"*i} on a.id = ac#{"c"*i}.article_id\n"}
+      query += " where "
+      i = -1
+      query += criterion_ids.map do |id|
+        i += 1
+        "ac#{'c'*i}.criterion_id = #{ActiveRecord::Base.connection.quote(id)}"
+      end.join(" and ")
+      return query
+    else
+      return nil
+    end
   end
   
   def Article.sort_sql_by_filter sql, filter, order = "desc"

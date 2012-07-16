@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Altereot</title>
+  <link href='http://fonts.googleapis.com/css?family=Play:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <%= include_gon %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -10,22 +11,29 @@
 </head>
 <body>
   <div id="header">
-    <h1><%= link_to "Суть Времени", "/articles" %></h1>
+    <div id="logo" class="inline">
+      <h1><%= link_to "Суть Времени", "/articles" %></h1>
+      <h4>Энциклопедия Сути Времени</h4>
+    </div>
+    <%= image_tag 'star.jpg', :id => 'star' %>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
-    <% end %>
+    <% end %>    
+  </div>
+  <div id="navbar">
+    <%= link_to 'ГЛАВНАЯ', '/' %> 
+    <%= link_to 'СТАТЬИ', articles_path %> 
+    <%= link_to 'НОВОСТИ', '/news' %> 
+    <%= link_to 'БЛОГИ', '/blogs' %>
+  </div>
+  <div id="selected_filters">
+    <%= yield :selected_filters %>
   </div>
   <div id="main">
-    <div id="filters">
-      <%= yield :selected_filters %>
+    <div id="leftside" class='inline'>
+      <%= yield :leftside %>
     </div>
-    <div id='criterions' class='criterions inline'>
-      <%= yield :criterions %>
-    </div>
-    <div id="articles" class='inline'>
-      <%= yield :articles %>
-    </div>
-    <div id="aside" class='inline'>
+    <div id="rightside" class='inline'>
       <div id="user_nav" class="inline">
         <% if current_user %>
         Logged in as <%= current_user.email %>.
@@ -35,11 +43,11 @@
         <%= link_to "log in", login_path %>
         <% end %>
       </div>
-      <div id="new_article" class="inline">
+      <div id="new_article">
         <%= link_to 'New Article', new_article_path %>
       </div>
       <div id="filters">
-        <%= yield :filters %>
+        <%= render 'filters' %>
       </div>
     </div>
   </div>

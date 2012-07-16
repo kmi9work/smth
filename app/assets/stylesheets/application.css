@@ -61,62 +61,54 @@ table {
 	border-spacing: 0;
 }
 
+a{
+  font-size: 14px;
+  color: #727373;
+  font-family: 'Play';
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover{
+  background: #ddd;
+}
+
+
+h1{
+  font-family: 'Play';
+  font-weight: bold;
+  font-size: 52px;
+  margin: 5px 0px;
+}
+h1 a{
+  font-size: 52px;
+  color: #950114;
+  text-decoration: none;
+}
+h1 a:hover{
+  font-family: 'Play';
+  font-weight: bold;
+  color: #950114;
+}
+
+h4{
+  color: #950114;
+}
+
 h3, h4, h5, h6{
   margin: 2px;
 }
 
-*{
-  position: relative;
+.inline{
+  display: inline-block;
 }
+
 .notice{
   color: green;
 }
 .error{
   color: red;
 }
-#main{
-  max-width: 1000px;
-  height: 700px;
-  border: 1px solid black;
-}
-#filters{
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid gray;
-}
-.filter{
-  width: 150px;
-  height: 20px;
-  text-align: center;
-  border-right: 2px solid red;
-}
-#aside{
-  position: relative;
-  float: right;
-  background: #ffa;
-  height: 100%;
-  width: 150px;
-}
 
-#criterions{
-  height: 100%;
-  float: left;
-}
 
-#articles{
-  width: 500px;
-  margin-left: 10px;
-  height: 100%;
-  overflow: auto;
-  float: left;
-}
 
-.criterions_filter{
-  overflow-y: auto;
-  vertical-align: top;
-/*  float: left;*/
-  height: 100%;
-  width: 150px;
-  border-right: 2px solid #999;
-  background-color: #fff;
-}

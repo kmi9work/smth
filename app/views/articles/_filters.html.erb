@@ -1,0 +1,13 @@
+<hr>
+<div id="filters">
+  Фильтры:
+  <% @filters.each do |filter| %>
+  <div id="filter<%= filter.id %>" class="filter">
+    <%= link_to filter.name, select_filter_path(filter) %>
+  </div>
+  <% end %>
+</div>
+<hr>
+Сортировка по дате создания: <br>
+<%= link_to image_tag("arrow_up.png", :height => "20px"), date_sort_path('created_at', 'asc') %>
+<%= link_to image_tag("arrow_down.png", :height => "20px"), date_sort_path('created_at', 'desc') %>

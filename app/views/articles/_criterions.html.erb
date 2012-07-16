@@ -1,0 +1,14 @@
+<% @selected_filters.each_with_index do |filter_order_by, i| %>
+  <% filter, order_by = filter_order_by[0], filter_order_by[1]%>
+  <div id="criterions_filter_<%= filter.id %>" class="criterions_filter">
+    <ul>
+      <% filter.criterions.each do |criterion| %>
+        <% if session[:criterion_ids] and session[:criterion_ids].include?(criterion.id)  %>
+          <li class="selected"><%= link_to criterion.name, criterion_choose_path(criterion.id) %></li>
+        <% else %>
+          <li><%= link_to criterion.name, criterion_choose_path(criterion.id), :title => criterion.name %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

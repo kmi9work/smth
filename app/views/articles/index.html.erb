@@ -1,70 +1,29 @@
+<%= content_for :leftside do %>
+  <%= render 'criterions' %>
+  <div id="articles" style="width: <%= 850 - @selected_filters.size * 114%>px">
+    <%= render 'articles' %>
+  </div>
+  
+<% end %>
+
+
 <%= content_for :selected_filters do%>
   
   <% @selected_filters.each_with_index do |filter_order_by, i| %>
-      <% filter = filter_order_by[0] 
-         order_by = filter_order_by[1]%>
+      <% filter = filter_order_by[0] %>
 
-      <div id="filter<%= filter.id %>" class="filter selected" style="background: #<%= (filter.name.hash % 0xffffff).to_s(16) %>">
-        <%= link_to filter.name, delete_filter_selection_path(i) %>
-        <% if i == @selected_filters.size-1 %>
-          <% if order_by == "desc" %>
-            <%= link_to image_tag("arrow_up.png", :height => "10px"), filter_sort_path(:index => i, :order_by => :asc) %>
-          <% else %>
-            <%= link_to image_tag("arrow_down.png", :height => "10px"), filter_sort_path(:index => i, :order_by => :desc) %>
-          <% end %>
-        <% end %>
+      <div id="filter<%= filter.id %>" class="filter selected">
+        <%= link_to filter.name, delete_filter_selection_path(i) %>      
       </div>
+    <% end %>
+    <% if session[:filter_sorting] %>
+      <% if session[:filter_sorting][1] == "desc" %>
+        <%= link_to image_tag("arrow_up.png", :height => "10px"), filter_sort_path(:index => 0, :order_by => :asc) %>
+      <% else %>
+        <%= link_to image_tag("arrow_down.png", :height => "10px"), filter_sort_path(:index => 0, :order_by => :desc) %>
+      <% end %>
     <% end %>
     <div id="reset_filter_selection">
       <%= link_to 'clear', reset_filter_selection_path unless @selected_filters.empty? %>
     </div>
-<% end %>
-
-<%= content_for :articles do %>
-  <% @articles.each do |article| %>
-    <h3 class="inline"><%= link_to article.name, article %></h3>
-    <font size="1">
-      <%= link_to 'Edit', edit_article_path(article) %>
-      <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
-    </font>
-    <%#= article.rating_id %>
-    <div class="criterions">
-      <% article.criterions.each do |criterion| %>
-      <div id="criterion<%= criterion.id %>" class="criterion" style="background: #<%= (criterion.filter.name.hash % 0xffffff).to_s(16) %>">
-        <%= criterion.name %>
-      </div>
-      <% end %>
-      <font size="1"> <%= article.created_at.strftime("%d.%m %H:%M:%S") %> </font>
-    </div>
-    
-  <% end %>
-<% end %>
-<%= content_for :filters do %>
-  <div id="filters" class="inline">
-    <% @filters.each do |filter| %>
-    <div id="filter<%= filter.id %>" class="filter" style="background: #<%= (filter.name.hash % 0xffffff).to_s(16) %>">
-      <%= link_to filter.name, select_filter_path(filter) %>
-    </div>
-    <% end %>
-  </div>
-  Сортировка по дате создания: <br>
-  <%= link_to image_tag("arrow_up.png", :height => "20px"), date_sort_path('created_at', 'asc') %>
-  <%= link_to image_tag("arrow_down.png", :height => "20px"), date_sort_path('created_at', 'desc') %>
-<% end %>
-
-<%= content_for :criterions do %>
-  <% @selected_filters.each_with_index do |filter_order_by, i| %>
-    <% filter, order_by = filter_order_by[0], filter_order_by[1]%>
-    <div id="criterions_filter_<%= filter.id %>" class="criterions_filter inline">
-      <ul>
-        <% filter.criterions.each do |criterion| %>
-          <% if session[:criterion_ids] and session[:criterion_ids].include?(criterion.id)  %>
-            <li class="selected"><%= link_to criterion.name, criterion_choose_path(criterion.id) %></li>
-          <% else %>
-            <li><%= link_to criterion.name, criterion_choose_path(criterion.id) %></li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 <% end %>

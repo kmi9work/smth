@@ -1,8 +1,9 @@
 <% content_for :head do %>
 <% end %>
-
+<%= content_for :leftside do %>
 <h1>Новая статья</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', articles_path %>
+<% end %>

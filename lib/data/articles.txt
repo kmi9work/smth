@@ -1,36 +1,6 @@
 
 -----
 name:
-test 
-name
-=
-content:
-test 
-content
-=
-filter:
-Тест фильтр 1
-criterion:
-Критерий 1
-filter:
-Тест фильтр 2
-criterion:
-Критерий 2
-filter:
-Тест фильтр 3
-criterion:
-Критерий 2
-filter:
-Тест фильтр 1
-criterion:
-Тест Критерий 4
-=
-user_id:
-1
-=====
-
------
-name:
 Социологическое исследование детей
 =
 content:

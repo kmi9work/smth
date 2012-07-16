@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
+  before_filter :find_filters
   def index
-    @filters = Filter.all
     # @articles = Article.all
     puts "======================="
     puts "criterion_ids: #{session[:criterion_ids].inspect}"
@@ -107,7 +107,7 @@ class ArticlesController < ApplicationController
   def new
     gon.autocomplete_criterion_path = autocomplete_criterion_path(2)
     gon.criterion_count = 1
-    gon.filters = Filter.all
+    gon.filters = @filters
     @article = Article.new
     #@filters = Filter.all#.collect{|tg| [tg.name, tg.id]}
   end
@@ -169,4 +169,9 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def find_filters
+    @filters = Filter.all
+  end
+  
 end

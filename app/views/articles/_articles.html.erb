@@ -1,0 +1,18 @@
+<% @articles.each do |article| %>
+  <h3 class="inline"><%= link_to article.name, article %></h3>
+  <font size="1">
+    <%= link_to 'Edit', edit_article_path(article), :style => "font-size: 8px" %>
+    <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete, :style => "font-size: 8px" %>
+  </font>
+  <br>
+  <%#= article.rating_id %>
+  <!-- <div class="article_criterions">
+      <% article.criterions.each do |criterion| %>
+      <div id="criterion<%= criterion.id %>" class="article_criterion" style="background: #<%= (criterion.filter.name.hash % 0xffffff).to_s(16) %>">
+        <%= criterion.name %>
+      </div>
+      <% end %>
+      <font size="1"> <%= article.created_at.strftime("%d.%m %H:%M:%S") %> </font>
+    </div> -->
+  
+<% end %>

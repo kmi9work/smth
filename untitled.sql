@@ -147,11 +147,19 @@ order by c.name desc
   
   
   
+select a.id from articles a 
+inner join articles_criterions ac on a.id = ac.article_id 
+where ac.criterion_id = 8
+INTERSECT
+select a.id from articles a 
+inner join articles_criterions ac on a.id = ac.article_id 
+where ac.criterion_id = 4;
   
-  
-  
-  
-  
+
+select a.id from articles a
+inner join articles_criterions ac on a.id = ac.article_id
+inner join articles_criterions acc on a.id = acc.article_id
+where ac.criterion_id = 4 and acc.criterion_id = 8;
   
   
   
