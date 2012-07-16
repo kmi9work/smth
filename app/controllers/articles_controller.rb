@@ -4,6 +4,8 @@ class ArticlesController < ApplicationController
   before_filter :find_filters
   def index
     # @articles = Article.all
+    session[:selected_filters] ||= []
+    session[:criterion_ids] ||= []
     puts "======================="
     puts "criterion_ids: #{session[:criterion_ids].inspect}"
     puts "filter_sorting: #{session[:filter_sorting].inspect}"
