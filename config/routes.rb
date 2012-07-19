@@ -28,6 +28,15 @@ Altereot::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :articles 
+  
+  #DMP-----------------------------------
+  match 'dmp' => 'dmp#index', :as => :dmp
+  match 'submit' => 'dmp#submit', :as => :dmp_submit
+  match 'country_autocomplete' => 'dmp#country_autocomplete', :as => :country_autocomplete
+  match 'city_autocomplete' => 'dmp#city_autocomplete', :as => :city_autocomplete
+  match 'school_autocomplete' => 'dmp#school_autocomplete', :as => :school_autocomplete
+  match 'university_autocomplete' => 'dmp#university_autocomplete', :as => :university_autocomplete
+  #DMP===================================
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

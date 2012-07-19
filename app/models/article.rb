@@ -113,6 +113,7 @@ class Article < ActiveRecord::Base
   end 
 private
   def Article.intersect_criterions_sql all_filters_criterions
+    p all_filters_criterions
     if all_filters_criterions.size > 0
       query = " select a.id from articles a\n"
       i = 0

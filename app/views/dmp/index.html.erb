@@ -1,0 +1,38 @@
+<html>
+<head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<%= form_tag dmp_submit_path do %>
+  <table>
+    <tr>
+      <td>Запрос: </td>
+      <td><%= text_field_tag 'query' %></td>
+    </tr>
+    <tr>
+      <td>Страна(Если не указана, по-умолчанию: "Россия"): </td>
+      <td><%= text_field_tag 'country', nil, data: {autocomplete_source: @countries.to_s}, :id => 'autocomplete_country' %></td>
+    </tr>
+    <tr>
+      <td>Город(Если не указан, по-умолчанию: "Москва"): </td>
+      <td><%= text_field_tag 'city', nil, data: {autocomplete_source: city_autocomplete_path}, :id => 'autocomplete_city' %></td>
+    </tr>
+    <tr>
+      <td>Школа: </td>
+      <td><%= text_field_tag 'school', nil, data: {autocomplete_source: school_autocomplete_path}, :id => 'autocomplete_school' %></td>
+    </tr>
+    <tr>
+      <td>Университет: </td>
+      <td><%= text_field_tag 'university', nil, data: {autocomplete_source: university_autocomplete_path}, :id => 'autocomplete_university' %></td>
+    </tr>
+    <%= submit_tag 'lets DO IT' %>
+  
+  </table>
+<% end %>
+<% @vkusers.each do |vkuser| %>
+  <%= link_to "http://vk.com/write#{vkuser.vkid}", "http://vk.com/write#{vkuser.vkid}", :target => "_blank" %><br>
+<% end %>
+</body>
+</html>
