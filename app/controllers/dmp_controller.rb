@@ -44,7 +44,7 @@ class DmpController < ApplicationController
     vksize_buf = -1
     offset = 0
     @vkusers = []
-    while @vkusers.size < 20 and (index += 1) < 100 and vksize_buf != @vkusers.size
+    while @vkusers.size < 20 and (index += 1) < 100
       vksize_buf = @vkusers.size
       @vkusers += Vkuser.get_vkusers(request_params, offset) 
       offset += 20
