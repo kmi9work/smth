@@ -1,6 +1,6 @@
 #encoding: utf-8
 require 'net/http'
-require 'nokogiri'
+require 'rexml/document'
 require 'iconv'
 class Vkuser < ActiveRecord::Base
   attr_accessible :vkid

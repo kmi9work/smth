@@ -216,6 +216,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   mini_magick
+  nokogiri
   pg
   rails (= 3.2.3)
   rb-fsevent
