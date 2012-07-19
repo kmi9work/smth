@@ -31,7 +31,6 @@ Altereot::Application.routes.draw do
   
   #DMP-----------------------------------
   match 'dmp' => 'dmp#index', :as => :dmp
-  match 'submit' => 'dmp#submit', :as => :dmp_submit
   match 'country_autocomplete' => 'dmp#country_autocomplete', :as => :country_autocomplete
   match 'city_autocomplete' => 'dmp#city_autocomplete', :as => :city_autocomplete
   match 'school_autocomplete' => 'dmp#school_autocomplete', :as => :school_autocomplete
