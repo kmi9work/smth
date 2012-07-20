@@ -17,14 +17,18 @@ class DmpController < ApplicationController
         request_params[:country] = country_id
       end
       unless params[:city].empty?
+        country_id = 1 unless country_id
         city_id = Vkuser.get_city_id country_id, params[:city]
         request_params[:city] = city_id
       end
       unless params[:university].empty?
+        country_id = 1 unless country_id
+        city_id = 1 unless city_id
         university_id = Vkuser.get_university_id country_id, city_id, params[:university]
         request_params[:university] = university_id
       end
       unless params[:school].empty?
+        city_id = 1 unless city_id
         school_id = Vkuser.get_school_id city_id, params[:school] 
         request_params[:school] = school_id
       end

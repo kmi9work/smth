@@ -182,6 +182,7 @@ class Vkuser < ActiveRecord::Base
   def Vkuser.get_city_id country, str
     act = "a_get_cities"
     ans = get_search_ajax act, country, nil, str
+    puts ans
     ans.match(/\['(\d+?)','#{str}','.+?','\d+?'\]/u)[1].to_i
   end
   
