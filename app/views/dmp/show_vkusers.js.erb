@@ -1,0 +1,4 @@
+<% @vkusers.each do |vkuser|%>
+  $('#vkusers').append("<a href='http://vk.com/write<%= vkuser.vkid %>' target='_blank'>http://vk.com/write<%= vkuser.vkid %></a><br>");
+<% end %>
+$('#vkusers').append("<hr>");

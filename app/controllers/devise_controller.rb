@@ -1,5 +1,6 @@
 # All Devise controllers are inherited from here.
 class DeviseController < Devise.parent_controller.constantize
+  layout false
   include Devise::Controllers::ScopedViews
 
   helper DeviseHelper

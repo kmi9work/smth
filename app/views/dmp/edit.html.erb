@@ -1,0 +1,44 @@
+<html>
+<head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <h2>Отредактировать запрос:</h2>
+  <%= form_for @dmp_request, dmp_update_path(@dmp_request) do |f| %>
+    <table>
+      <tr>
+        <td> Название: </td>
+        <td> <%= f.text_field :name %> </td>
+      </tr>
+      <tr>
+        <td> Сообщение: </td>
+        <td> <%= f.text_area :content %></td>
+      </tr>
+      <tr>
+        <td>Запрос: </td>
+        <td><%= f.text_field :q %></td>
+      </tr>
+      <tr>
+        <td>Страна(Если не указана, по-умолчанию: "Россия"): </td>
+        <td><%= f.text_field :country, data: {autocomplete_source: @countries.to_s}, :id => 'autocomplete_country' %></td>
+      </tr>
+      <tr>
+        <td>Город(Если не указан, по-умолчанию: "Москва"): </td>
+        <td><%= f.text_field :city, data: {autocomplete_source: city_autocomplete_path}, :id => 'autocomplete_city' %></td>
+      </tr>
+      <tr>
+        <td>Школа: </td>
+        <td><%= f.text_field :school, data: {autocomplete_source: school_autocomplete_path}, :id => 'autocomplete_school' %></td>
+      </tr>
+      <tr>
+        <td>Университет: </td>
+        <td><%= f.text_field :university, data: {autocomplete_source: university_autocomplete_path}, :id => 'autocomplete_university' %></td>
+      </tr>
+      <%= f.submit 'lets DO IT' %>
+
+    </table>
+  <% end %>
+</body>
+</html>
