@@ -12,10 +12,12 @@
       <%= @dmp_request.content %>
       <hr>
       Параметры: <br>
-      <% @dmp_request.vk_attrs.each do |k, v| %>
+      <br>
+      <% @dmp_request.vk_attrs.keep_if{|k, v| v and !v.empty?}.each do |k, v| %>
         <p><%= k %>: <%= v %></p>
       <% end %>
     </div>
+    <br>
     <%= link_to "Edit", dmp_edit_path(@dmp_request.id) if dmp_admin_signed_in? %> 
     <%= link_to "Destroy", dmp_destroy_path(@dmp_request.id) if dmp_admin_signed_in? %>
   </div>
