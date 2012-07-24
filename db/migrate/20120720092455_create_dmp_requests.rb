@@ -2,7 +2,7 @@ class CreateDmpRequests < ActiveRecord::Migration
   def change
     create_table :dmp_requests do |t|
       t.string :name
-      t.string :content
+      t.text :content
       t.integer :offset, :default => 0
       t.string :q
       t.string :country
