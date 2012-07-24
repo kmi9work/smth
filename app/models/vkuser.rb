@@ -10,8 +10,10 @@ class Vkuser < ActiveRecord::Base
   def Vkuser.get_vkusers dmp_request, offset #if returns nil --> vk DOM changed
     http = Net::HTTP.new('vk.com', 80)
     path = '/al_search.php'
-    data = "al=1&#{dmp_request.vk_attrs.map{|k, v| "c%5B#{k}%5D=#{v}"}.join('&')}&offset=#{offset}"
+    data = "al=1&#{dmp_request.vk_attrs.keep_if{|k,v| v and !v.empty?}.map{|k, v| "c%5B#{k}%5D=#{v}"}.join('&')}&offset=#{offset}"
+    puts "-------------vkusers request"
     p data
+    puts "============"
     # data = 'al=1&c%5Bcountry%5D=1&c%5Bname%5D=1&c%5Bq%5D=trolo&c%5Bsection%5D=people&offset=40'
     headers = { 
       'X-Requested-With' => 'XMLHttpRequest', 
@@ -27,13 +29,13 @@ class Vkuser < ActiveRecord::Base
 
 
     # Output on the screen -> we should get either a 302 redirect (after a successful login) or an error page
-    puts 'Code = ' + resp.code
-    puts 'Message = ' + resp.message
-    resp.each {|key, val| puts key + ' = ' + val}
+    # puts 'Code = ' + resp.code
+    #     puts 'Message = ' + resp.message
+    #     resp.each {|key, val| puts key + ' = ' + val}
 
     gz = Zlib::GzipReader.new(StringIO.new(data))    
     xml = Iconv.conv('UTF-8', 'CP1251', gz.read)
-
+    puts xml
     doc = Nokogiri::HTML(xml)
     regex_id = Regexp.new(/Searcher\.bigphOver\(this, (\d+)\)/)
     matched = true
@@ -44,7 +46,6 @@ class Vkuser < ActiveRecord::Base
           vk_id = div['onmouseover'].match(regex_id)[1].to_i
           u = Vkuser.new(:vkid => vk_id)
           if u.valid?
-            u.save!
             vkusers << u
           end
         else

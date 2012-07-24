@@ -5,6 +5,9 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
+  <% end %>
   <h2>Создать новый запрос:</h2>
   <%= form_for @dmp_request, :url => dmp_create_path do |f| %>
     <%= f.submit 'lets DO IT' %>

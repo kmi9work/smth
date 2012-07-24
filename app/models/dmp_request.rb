@@ -4,7 +4,7 @@ class DmpRequest < ActiveRecord::Base
   validates :content, :presence => true
   
   def vk_attrs
-    return {:q => @q, :country => @country, :city => @city, :university => @university, :school => @school}
+    return {:q => q, :country => country, :city => city, :university => university, :school => school}
   end
   
 end

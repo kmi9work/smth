@@ -6,6 +6,9 @@
 </head>
 <body>
   <%= link_to 'login', new_dmp_admin_session_path %><br>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
+  <% end %>
   <hr>
   <% @dmp_requests.each do |dmp_request| %>
     <%= link_to dmp_request.name, dmp_show_path(dmp_request.id) %> 
