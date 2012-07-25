@@ -16,6 +16,8 @@ gem "mini_magick"
 
 gem 'acts_as_tree_rails3'
 
+gem 'justonedb'
+
 # gem 'sqlite3'
 gem 'pg'
 gem "ckeditor"#, "~> 3.7.1"

@@ -6,7 +6,7 @@
 </head>
 <body>
   <h2>Отредактировать запрос:</h2>
-  <%= form_for @dmp_request, dmp_update_path(@dmp_request) do |f| %>
+  <%= form_for @dmp_request, :url => dmp_update_path(@dmp_request) do |f| %>
     <table>
       <tr>
         <td> Название: </td>
