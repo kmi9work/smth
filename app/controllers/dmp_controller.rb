@@ -74,19 +74,24 @@ class DmpController < ApplicationController
     @vkusers = []
     index = 0
     vksize_buf = -1
-    offset = 0
+    offset = @dmp_request.offset
     @error = nil
     while @vkusers.size < 20 and (index += 1) < 100
       vksize_buf = @vkusers.size
-      ans = Vkuser.get_vkusers(@dmp_request, offset) 
-      if ans == 1
+      ans, status = Vkuser.get_vkusers(@dmp_request, offset) 
+      if status == 1
         @error = "Vk DOM changed"
         break 
-      elsif ans == 0
+      elsif status == 0
         @error = "Nothing found"
         break
       end
       @vkusers += ans
+      break if status == 2
+      if status == 3
+        @dmp_request.offset += 20
+        @dmp_request.save
+      end
       offset += 20
     end
   end

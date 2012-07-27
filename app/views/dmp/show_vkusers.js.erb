@@ -1,7 +1,8 @@
 <% if @error %>
-  $('#vkusers').append('<div class="notice"><%= @error %></div>');
   $('#vkusers').append("<hr>");
+  $('#vkusers').append('<div class="notice"><%= @error %></div>');
 <% else %>
+  $('#vkusers').append("<hr>");
   <% @vkusers.each do |vkuser|%>
     $('#vkusers').append("                                                                         \
     <a id='<%= vkuser.vkid %>' href='http://vk.com/write<%= vkuser.vkid %>' target='_blank'>       \
@@ -17,5 +18,4 @@
       })                                                                                           \
     </script>");
   <% end %>
-  $('#vkusers').append("<hr>");
 <% end %>

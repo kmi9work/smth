@@ -41,7 +41,8 @@ class Vkuser < ActiveRecord::Base
     matched = true
     vkusers = []
     fl = false
-    doc.css('.img.search_bigph_wrap.fl_l').each do |div|
+    last = -1
+    doc.css('.img.search_bigph_wrap.fl_l').each_with_index do |div, i|
       if div['onmouseover']
         if div['onmouseover'].match(regex_id)
           fl = true
@@ -54,10 +55,13 @@ class Vkuser < ActiveRecord::Base
           matched = false
         end
       end
+      last = i
     end
-    return 0 unless fl
-    return 1 unless matched #vk DOM changed
-    return vkusers
+    status = 3 if vkusers.empty? #add offsets
+    status = 2 if last < 19 #last search
+    status = 0 unless fl
+    status = 1 unless matched #vk DOM changed
+    return vkusers, status
   end
   
   def Vkuser.get_countries

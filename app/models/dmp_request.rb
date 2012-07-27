@@ -1,5 +1,5 @@
 class DmpRequest < ActiveRecord::Base
-  attr_accessible :name, :content, :q, :country, :city, :university, :school, :school_year, :uni_year, :age_from, :age_to, :online, :photo, :status, :sex
+  attr_accessible :name, :content, :q, :country, :city, :university, :school, :school_year, :uni_year, :age_from, :age_to, :online, :photo, :status, :sex, :offset
   validates :name, :presence => true
   validates :content, :presence => true
   
