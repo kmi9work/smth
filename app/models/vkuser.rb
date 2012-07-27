@@ -49,6 +49,7 @@ class Vkuser < ActiveRecord::Base
           vk_id = div['onmouseover'].match(regex_id)[1].to_i
           u = Vkuser.new(:vkid => vk_id)
           if u.valid?
+            u.save
             vkusers << u
           end
         else
@@ -120,7 +121,9 @@ class Vkuser < ActiveRecord::Base
     countries[str]
   end
   
-  
+  def Vkuser.clean
+    puts Vkuser.destroy_all(:created_at => 2.hour.ago..1.hour.ago, :sent => false).size
+  end
   
   protected
 
@@ -148,6 +151,8 @@ class Vkuser < ActiveRecord::Base
     gz = Zlib::GzipReader.new(StringIO.new(response_data))   
     Iconv.conv('UTF-8', resp_encoding, gz.read)
   end
+end
+#====================================END CODE+++++++++++++++++++++++++++++++++
   
   #-----------------------------------------------------------------------------
   # a_get_country_info
@@ -179,60 +184,60 @@ class Vkuser < ActiveRecord::Base
   #    
   #    
 
-  def Vkuser.get_ajax
-    fout_schools = File.open('vk_schools.txt', 'w')
-    fout_universities = File.open('vk_universities.txt', 'w')
-    f = File.open('vk_cities.txt','r')
-    cities = []
-    while f.gets
-      if $_ =~ /cid::(\d+) name::(.+)/
-        cities << $1.to_i
-      end
-    end
-
-    http = Net::HTTP.new('vk.com', 80)
-    path = '/select_ajax.php'
-    act = 'a_get_city_info'
-    fields_schools = 100
-    fields_universities = 1000
-    cities.each do |city|
-      puts city
-      fout_schools.puts "city_id: #{city} -----"
-      fout_universities.puts "city_id: #{city} -----"
-      data_schools = "act=#{act}&city=#{city}&fields=#{fields_schools}"
-      data_universities = "act=#{act}&city=#{city}&fields=#{fields_universities}"
-      # data = 'al=1&c%5Bcountry%5D=1&c%5Bname%5D=1&c%5Bq%5D=trolo&c%5Bsection%5D=people&offset=40'
-      headers = { 
-        'X-Requested-With' => 'XMLHttpRequest', 
-        'Accept-Charset' => 'utf-8',
-        'Content-Type' => 'application/x-www-form-urlencoded',
-        'Accept' => 'text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap',
-        'Accept-Encoding' => 'gzip, deflate',
-        'Referer' => 'http://vk.com/al_search.php',
-        'User-Agent' => 'Opera/9.99 (Windows NT 5.1; U; pl) Presto/9.9.9',
-        'Content-Type' => 'application/x-www-form-urlencoded'
-      }
-
-      resp_schools, data_schools = http.post(path, data_schools, headers)
-      sleep(1)
-      resp_universities, data_universities = http.post(path, data_universities, headers)
-      sleep(1)
-      # Output on the screen -> we should get either a 302 redirect (after a successful login) or an error page
-      # puts 'Code = ' + resp.code
-      # puts 'Message = ' + resp.message
-      # resp.each {|key, val| puts key + ' = ' + val}
-      # puts data
-      gz = Zlib::GzipReader.new(StringIO.new(data_schools))    
-      fout_schools.puts Iconv.conv('UTF-8', 'CP1251', gz.read)
-
-      gz = Zlib::GzipReader.new(StringIO.new(data_universities))    
-      fout_universities.puts Iconv.conv('UTF-8', 'CP1251', gz.read)
-    end
-    fout_universities.close
-    fout_schools.close
-  end
-
-end
+  # def Vkuser.get_ajax
+  #     fout_schools = File.open('vk_schools.txt', 'w')
+  #     fout_universities = File.open('vk_universities.txt', 'w')
+  #     f = File.open('vk_cities.txt','r')
+  #     cities = []
+  #     while f.gets
+  #       if $_ =~ /cid::(\d+) name::(.+)/
+  #         cities << $1.to_i
+  #       end
+  #     end
+  # 
+  #     http = Net::HTTP.new('vk.com', 80)
+  #     path = '/select_ajax.php'
+  #     act = 'a_get_city_info'
+  #     fields_schools = 100
+  #     fields_universities = 1000
+  #     cities.each do |city|
+  #       puts city
+  #       fout_schools.puts "city_id: #{city} -----"
+  #       fout_universities.puts "city_id: #{city} -----"
+  #       data_schools = "act=#{act}&city=#{city}&fields=#{fields_schools}"
+  #       data_universities = "act=#{act}&city=#{city}&fields=#{fields_universities}"
+  #       # data = 'al=1&c%5Bcountry%5D=1&c%5Bname%5D=1&c%5Bq%5D=trolo&c%5Bsection%5D=people&offset=40'
+  #       headers = { 
+  #         'X-Requested-With' => 'XMLHttpRequest', 
+  #         'Accept-Charset' => 'utf-8',
+  #         'Content-Type' => 'application/x-www-form-urlencoded',
+  #         'Accept' => 'text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap',
+  #         'Accept-Encoding' => 'gzip, deflate',
+  #         'Referer' => 'http://vk.com/al_search.php',
+  #         'User-Agent' => 'Opera/9.99 (Windows NT 5.1; U; pl) Presto/9.9.9',
+  #         'Content-Type' => 'application/x-www-form-urlencoded'
+  #       }
+  # 
+  #       resp_schools, data_schools = http.post(path, data_schools, headers)
+  #       sleep(1)
+  #       resp_universities, data_universities = http.post(path, data_universities, headers)
+  #       sleep(1)
+  #       # Output on the screen -> we should get either a 302 redirect (after a successful login) or an error page
+  #       # puts 'Code = ' + resp.code
+  #       # puts 'Message = ' + resp.message
+  #       # resp.each {|key, val| puts key + ' = ' + val}
+  #       # puts data
+  #       gz = Zlib::GzipReader.new(StringIO.new(data_schools))    
+  #       fout_schools.puts Iconv.conv('UTF-8', 'CP1251', gz.read)
+  # 
+  #       gz = Zlib::GzipReader.new(StringIO.new(data_universities))    
+  #       fout_universities.puts Iconv.conv('UTF-8', 'CP1251', gz.read)
+  #     end
+  #     fout_universities.close
+  #     fout_schools.close
+  #   end
+  # 
+  # end
 =begin
 {
 :age_from => 14,                          #Возраст С

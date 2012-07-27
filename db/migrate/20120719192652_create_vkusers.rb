@@ -1,9 +1,9 @@
 class CreateVkusers < ActiveRecord::Migration
   def change
-    create_table :vkusers do |t|
+    create_table :vkusers, :primary_key => :vkid do |t|
       t.integer :vkid
-      
-      t.timestamps
+      t.boolean :sent, :default => false
+      t.datetime :created_at
     end
   end
 end

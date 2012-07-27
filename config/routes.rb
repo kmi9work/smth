@@ -42,10 +42,10 @@ Altereot::Application.routes.draw do
   match 'dmp/update/:id' => 'dmp#update', :as => :dmp_update
   match 'dmp/destroy/:id' => 'dmp#destroy', :as => :dmp_destroy
   
-  match 'country_ok_ajax' => 'dmp#country_ok_ajax', :as => :country_ok_ajax
-  match 'city_ok_ajax' => 'dmp#city_ok_ajax', :as => :city_ok_ajax
-  match 'school_ok_ajax' => 'dmp#school_ok_ajax', :as => :school_ok_ajax
-  match 'university_ok_ajax' => 'dmp#university_ok_ajax', :as => :university_ok_ajax
+  # match 'country_ok_ajax' => 'dmp#country_ok_ajax', :as => :country_ok_ajax
+  #   match 'city_ok_ajax' => 'dmp#city_ok_ajax', :as => :city_ok_ajax
+  #   match 'school_ok_ajax' => 'dmp#school_ok_ajax', :as => :school_ok_ajax
+  #   match 'university_ok_ajax' => 'dmp#university_ok_ajax', :as => :university_ok_ajax
   match 'vkuser_sent' => 'dmp#vkuser_sent'
   
   match 'country_autocomplete' => 'dmp#country_autocomplete', :as => :country_autocomplete

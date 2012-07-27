@@ -149,10 +149,9 @@ ActiveRecord::Schema.define(:version => 20120720092455) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
-  create_table "vkusers", :force => true do |t|
-    t.integer  "vkid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "vkusers", :primary_key => "vkid", :force => true do |t|
+    t.boolean  "sent",       :default => false
+    t.datetime "created_at"
   end
 
 end

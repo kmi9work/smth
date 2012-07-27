@@ -38,33 +38,33 @@ class DmpController < ApplicationController
     render :json => response
   end
   
-  def country_ok_ajax
-    if params[:country]
-      @country = params[:country]
-      country_id = Vkuser.get_country_id params[:country]
-      if country_id 
-        session[:dmp_country] = country_id
-        render 'country_ok'
-      else
-        render 'error_country_ok'
-      end
-    else
-      render 'error_country_ok'
-    end
-  end
-  
-  def city_ok_ajax
-    
-  end
-  
-  def school_ok_ajax
-    
-  end
-  
-  def university_ok_ajax
-    
-  end
-  
+  # def country_ok_ajax
+  #    if params[:country]
+  #      @country = params[:country]
+  #      country_id = Vkuser.get_country_id params[:country]
+  #      if country_id 
+  #        session[:dmp_country] = country_id
+  #        render 'country_ok'
+  #      else
+  #        render 'error_country_ok'
+  #      end
+  #    else
+  #      render 'error_country_ok'
+  #    end
+  #  end
+  #  
+  #  def city_ok_ajax
+  #    
+  #  end
+  #  
+  #  def school_ok_ajax
+  #    
+  #  end
+  #  
+  #  def university_ok_ajax
+  #    
+  #  end
+  #  
   def show
     @dmp_request = DmpRequest.find(params[:id])
   end
@@ -97,13 +97,10 @@ class DmpController < ApplicationController
   end
   
   def vkuser_sent
-    vkuser = Vkuser.new(:vkid => params[:vkid])
-    if vkuser.valid?
-      vkuser.save
-      render :nothing => true
-    else
-      render :nothing => true
-    end
+    vkuser = Vkuser.find(params[:vkid])
+    vkuser.sent = true
+    vkuser.save
+    render :nothing => true
   end
   
   def new
