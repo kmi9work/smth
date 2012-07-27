@@ -80,14 +80,22 @@ ActiveRecord::Schema.define(:version => 20120720092455) do
   create_table "dmp_requests", :force => true do |t|
     t.string   "name"
     t.text     "content"
-    t.integer  "offset",     :default => 0
+    t.integer  "offset",      :default => 0
     t.string   "q"
     t.string   "country"
     t.string   "city"
     t.string   "university"
+    t.integer  "uni_year"
     t.string   "school"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "school_year"
+    t.integer  "age_from"
+    t.integer  "age_to"
+    t.integer  "online"
+    t.integer  "photo"
+    t.integer  "sex"
+    t.integer  "status"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "filters", :force => true do |t|

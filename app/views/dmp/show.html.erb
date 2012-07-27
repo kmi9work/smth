@@ -13,7 +13,7 @@
       <hr>
       Параметры: <br>
       <br>
-      <% @dmp_request.vk_attrs.keep_if{|k, v| v and !v.empty?}.each do |k, v| %>
+      <% @dmp_request.vk_attrs.delete_if{|k, v| v.blank?}.each do |k, v| %>
         <p><%= k %>: <%= v %></p>
       <% end %>
     </div>

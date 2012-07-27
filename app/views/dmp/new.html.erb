@@ -10,48 +10,7 @@
   <% end %>
   <h2>Создать новый запрос:</h2>
   <%= form_for @dmp_request, :url => dmp_create_path do |f| %>
-    <%= f.submit 'lets DO IT' %>
-    <table>
-      <tr>
-        <td> Название: </td>
-        <td> <%= f.text_field :name %> </td>
-      </tr>
-      <tr>
-        <td> Сообщение: </td>
-        <td> <%= f.text_area :content %></td>
-      </tr>
-      <tr>
-        <td>Запрос: </td>
-        <td><%= f.text_field :q %></td>
-      </tr>
-      <tr>
-        <td>Страна(Если не указана, по-умолчанию: "Россия"): </td>
-        <td id="td_autocomplete_country">
-          <%= f.text_field :country, data: {autocomplete_source: @countries.to_s}, :id => 'autocomplete_country' %> 
-        </td>
-      </tr>
-      <tr>
-        <td>Город(Если не указан, по-умолчанию: "Москва"): </td>
-        <td id="td_autocomplete_city">
-          <%= f.text_field :city, data: {autocomplete_source: '/city_autocomplete?'}, :id => 'autocomplete_city' %>
-          Автозаполнение пока работает только для России.
-        </td>
-      </tr>
-      <tr>
-        <td>Школа: </td>
-        <td id="td_autocomplete_school">
-          <%= f.text_field :school, data: {autocomplete_source: '/school_autocomplete?'}, :id => 'autocomplete_school' %>
-          Автозаполнение пока работает только для Москвы.
-        </td>
-      </tr>
-      <tr>
-        <td>Университет: </td>
-        <td id="td_autocomplete_university">
-          <%= f.text_field :university, data: {autocomplete_source: '/university_autocomplete?'}, :id => 'autocomplete_university' %>
-          Автозаполнение пока работает только для Москвы.
-        </td>
-      </tr>
-    </table>
+    <%= render :partial => "form", :locals => {:f => f} %>
   <% end %>
 </body>
 </html>

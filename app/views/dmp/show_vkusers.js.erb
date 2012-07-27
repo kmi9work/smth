@@ -1,16 +1,21 @@
-<% @vkusers.each do |vkuser|%>
-  $('#vkusers').append("                                                                         \
-  <a id='<%= vkuser.vkid %>' href='http://vk.com/write<%= vkuser.vkid %>' target='_blank'>       \
-    http://vk.com/write<%= vkuser.vkid %>                                                        \
-  </a><br>                                                                                       \
-  <script>                                                                                       \
-    $('#<%= vkuser.vkid %>').click(function(){                                                   \
-      $.ajax({                                                                                   \
-        type: 'POST',                                                                            \
-        url: '/vkuser_sent',                                                                     \
-        data: {vkid: <%= vkuser.vkid %>}                                                         \
-      })                                                                                         \
-    })                                                                                           \
-  </script>");
+<% if @error %>
+  $('#vkusers').append('<div class="notice"><%= @error %></div>');
+  $('#vkusers').append("<hr>");
+<% else %>
+  <% @vkusers.each do |vkuser|%>
+    $('#vkusers').append("                                                                         \
+    <a id='<%= vkuser.vkid %>' href='http://vk.com/write<%= vkuser.vkid %>' target='_blank'>       \
+      http://vk.com/write<%= vkuser.vkid %>                                                        \
+    </a><br>                                                                                       \
+    <script>                                                                                       \
+      $('#<%= vkuser.vkid %>').click(function(){                                                   \
+        $.ajax({                                                                                   \
+          type: 'POST',                                                                            \
+          url: '/vkuser_sent',                                                                     \
+          data: {vkid: <%= vkuser.vkid %>}                                                         \
+        })                                                                                         \
+      })                                                                                           \
+    </script>");
+  <% end %>
+  $('#vkusers').append("<hr>");
 <% end %>
-$('#vkusers').append("<hr>");

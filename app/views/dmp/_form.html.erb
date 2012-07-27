@@ -1,0 +1,75 @@
+<%= f.submit 'lets DO IT' %><br>
+Автозаполнение для города, универа и школы пока работает только для России и Москвы.
+<table>
+  <tr>
+    <td> Название: </td>
+    <td> <%= f.text_field :name %> </td>
+  </tr>
+  <tr>
+    <td> Сообщение: </td>
+    <td> <%= f.text_area :content %></td>
+  </tr>
+  <tr>
+    <td>Запрос: </td>
+    <td><%= f.text_field :q %></td>
+  </tr>
+  <tr>
+    <td><br></td>
+  </tr>
+  <tr>
+    <td>Страна: </td>
+    <td id="td_autocomplete_country">
+      <%= f.text_field :country, data: {autocomplete_source: @countries.to_s}, :id => 'autocomplete_country' %> 
+      (Если не указана, по-умолчанию: "Россия")
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Город: <br>
+    </td>
+    <td id="td_autocomplete_city">
+      <%= f.text_field :city, data: {autocomplete_source: '/city_autocomplete?'}, :id => 'autocomplete_city' %>
+      (Если не указан, по-умолчанию: "Москва")
+    </td>
+  </tr>
+  <tr>
+    <td>Школа: </td>
+    <td id="td_autocomplete_school">
+      <%= f.text_field :school, data: {autocomplete_source: '/school_autocomplete?'}, :id => 'autocomplete_school' %>
+      Год окончания: <%= f.text_field :school_year, :size => 4 %>
+    </td>
+  </tr>
+  <tr>
+    <td>Университет: </td>
+    <td id="td_autocomplete_university">
+      <%= f.text_field :university, data: {autocomplete_source: '/university_autocomplete?'}, :id => 'autocomplete_university' %>
+      Год окончания: <%= f.text_field :uni_year, :size => 4 %>
+    </td>
+  </tr>
+  <tr>
+    <td>Возраст:</td>
+    <td>
+      От: <%= f.text_field :age_from, :size => 3 %>
+      До: <%= f.text_field :age_to, :size => 3 %>
+    </td>
+  </tr>
+  <tr>
+    <td>Пол:</td>
+    <td>
+      <%= f.radio_button :sex, "2" %> Мужской
+      <%= f.radio_button :sex, "1" %> Женский
+    </td>
+  </tr>
+  <tr>
+    <td>Сейчас на сайте: </td>
+    <td><%= f.check_box :online %></td>
+  </tr>
+  <tr>
+    <td>С фото: </td>
+    <td><%= f.check_box :photo %></td>
+  </tr>
+  <tr>
+    <td>Семейное положение: </td>
+    <td><%= f.select :status, [["не женат", 1], ["Есть подруга", 2], ["Помолвлен", 3], ["Женат", 4], ["Влюблён", 7], ["Всё сложно", 5], ["В активном поиске", 6]], :include_blank => true %></td>
+  </tr>
+</table>

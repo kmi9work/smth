@@ -75,10 +75,18 @@ class DmpController < ApplicationController
     index = 0
     vksize_buf = -1
     offset = 0
-  
+    @error = nil
     while @vkusers.size < 20 and (index += 1) < 100
       vksize_buf = @vkusers.size
-      @vkusers += Vkuser.get_vkusers(@dmp_request, offset) 
+      ans = Vkuser.get_vkusers(@dmp_request, offset) 
+      if ans == 1
+        @error = "Vk DOM changed"
+        break 
+      elsif ans == 0
+        @error = "Nothing found"
+        break
+      end
+      @vkusers += ans
       offset += 20
     end
   end
@@ -114,15 +122,18 @@ class DmpController < ApplicationController
   def edit
     @countries = Vkuser.get_countries
     @dmp_request = DmpRequest.find(params[:id])
+    @dmp_request.nilify!
   end  
   
   def update
     @dmp_request = DmpRequest.find(params[:id])
     request_params = get_request_from_params params[:dmp_request]
+    puts "update:"
+    p request_params
     if @dmp_request.update_attributes(request_params)
       redirect_to '/dmp', :notice => "updated"
     else
-      redirect_to '/dmp/new', :notice => "error: #{@dmp_request.errors.full_messages}"
+      redirect_to "/dmp/edit/#{params[:id]}", :notice => "error: #{@dmp_request.errors.full_messages}"
     end
   end
   
@@ -133,36 +144,27 @@ class DmpController < ApplicationController
   end
   protected
   def get_request_from_params params
-    puts '================'
-    p params
-    query, country_id, city_id, university_id, school_id = nil, nil, nil, nil, nil
-    request_params = {}
-    if params[:q] and !params[:q].empty?
-      query = params[:q]
-      request_params[:q] = query
-    end
-    if params[:country] and !params[:country].empty?
+    country_id, city_id, university_id, school_id = nil, nil, nil, nil
+    unless params[:country].blank?
       country_id = Vkuser.get_country_id params[:country].gsub(/<.*?>/,'').strip
-      request_params[:country] = country_id
+      params[:country] = country_id
     end
-    if params[:city] and !params[:city].empty?
+    unless params[:city].blank?
       country_id = 1 unless country_id
       city_id = Vkuser.get_city_id country_id, params[:city].gsub(/<.*?>/,'').strip
-      request_params[:city] = city_id
+      params[:city] = city_id
     end
-    if params[:university] and !params[:university].empty?
+    unless params[:university].blank?
       country_id = 1 unless country_id
       city_id = 1 unless city_id
       university_id = Vkuser.get_university_id country_id, city_id, params[:university].gsub(/<.*?>/,'').strip
-      request_params[:university] = university_id
+      params[:university] = university_id
     end
-    if params[:school] and !params[:school].empty?
+    unless params[:school].blank?
       city_id = 1 unless city_id
       school_id = Vkuser.get_school_id city_id, params[:school].gsub(/<.*?>/,'').strip
-      request_params[:school] = school_id
+      params[:school] = school_id
     end
-    request_params[:name] = params[:name]
-    request_params[:content] = params[:content]
-    return request_params
+    return params
   end
 end
