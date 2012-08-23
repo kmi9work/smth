@@ -18,7 +18,7 @@ class CreateDmpRequests < ActiveRecord::Migration
       t.integer :photo
       t.integer :sex
       t.integer :group
-      t.string :query, :limit => 1024
+      t.text :query
       t.integer :status #semeinoe polojenie
       t.timestamps
     end
