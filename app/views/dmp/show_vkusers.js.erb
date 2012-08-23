@@ -4,7 +4,7 @@
 <% else %>
   $('#vkusers').append("<hr>");
   <% if @vkusers.blank? %>
-    $('#vkusers').append("Поздравляем, список обработан полностью!");
+    $('#vkusers').html("Поздравляем, список обработан полностью!");
   <% else %>
     <% @vkusers.each do |vkuser|%>
       $('#vkusers').append("                                                                         \
