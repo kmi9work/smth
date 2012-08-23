@@ -10,7 +10,11 @@ class Vkuser < ActiveRecord::Base
   def Vkuser.get_vkusers dmp_request, offset #if returns nil --> vk DOM changed
     http = Net::HTTP.new('vk.com', 80)
     path = '/al_search.php'
-    data = "al=1&#{dmp_request.vk_attrs.delete_if{|k,v| v.blank? or v == 0}.map{|k, v| "c%5B#{k}%5D=#{v}"}.join('&')}&offset=#{offset}"
+    if dmp_request.query.present?
+      data = "#{dmp_request.query}&offset=#{offset}"
+    else
+      data = "al=1&#{dmp_request.vk_attrs.delete_if{|k,v| v.blank? or v == 0}.map{|k, v| "c%5B#{k}%5D=#{v}"}.join('&')}&offset=#{offset}"
+    end
     puts "-------------vkusers request"
     p data
     puts "============"
@@ -122,7 +126,10 @@ class Vkuser < ActiveRecord::Base
   end
   
   def Vkuser.clean
-    puts Vkuser.destroy_all(:created_at => 2.hour.ago..1.hour.ago, :sent => false).size
+    size = Vkuser.destroy_all(:created_at => 2.hour.ago..1.hour.ago, :sent => false).size
+    if size > 0
+      DmpRequest.all{|d| d.offset = d.start_offset; d.save}
+    end
   end
   
   protected

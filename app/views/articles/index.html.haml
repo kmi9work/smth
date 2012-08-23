@@ -1,0 +1,9 @@
+= content_for :leftside do
+  #left_container{style: "width: #{152 + @selected_filters.size*102}px;"}<
+    .criterions_filter{style: "width: 152px;"}
+      .filter.selected{style: "width: 152px;"}
+        Выбранные:
+      %ul{id: "all_filters_criterions", type: 'none'}
+  / #articles
+  /   = render 'articles'
+

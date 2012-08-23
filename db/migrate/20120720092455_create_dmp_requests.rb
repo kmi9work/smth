@@ -4,6 +4,7 @@ class CreateDmpRequests < ActiveRecord::Migration
       t.string :name
       t.text :content
       t.integer :offset, :default => 0
+      t.integer :start_offset, :default => 0
       t.string :q
       t.string :country
       t.string :city
@@ -16,6 +17,8 @@ class CreateDmpRequests < ActiveRecord::Migration
       t.integer :online
       t.integer :photo
       t.integer :sex
+      t.integer :group
+      t.string :query, :limit => 1024
       t.integer :status #semeinoe polojenie
       t.timestamps
     end

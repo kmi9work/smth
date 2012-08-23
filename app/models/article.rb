@@ -115,7 +115,7 @@ private
   def Article.intersect_criterions_sql all_filters_criterions
     p all_filters_criterions
     if all_filters_criterions.size > 0
-      query = " select a.id from articles a\n"
+      query = " select distinct a.id from articles a\n"
       i = 0
       p all_filters_criterions
       all_filters_criterions.each do |filter, criterions|

@@ -1,0 +1,10 @@
+=content_for :head do
+  <script>
+      
+  </script>
+= content_for :leftside do
+  %h1 Новая статья
+
+  = render 'form'
+
+  = link_to 'Back', articles_path

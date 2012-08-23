@@ -80,7 +80,8 @@ ActiveRecord::Schema.define(:version => 20120720092455) do
   create_table "dmp_requests", :force => true do |t|
     t.string   "name"
     t.text     "content"
-    t.integer  "offset",      :default => 0
+    t.integer  "offset",                       :default => 0
+    t.integer  "start_offset",                 :default => 0
     t.string   "q"
     t.string   "country"
     t.string   "city"
@@ -93,9 +94,11 @@ ActiveRecord::Schema.define(:version => 20120720092455) do
     t.integer  "online"
     t.integer  "photo"
     t.integer  "sex"
+    t.integer  "group"
+    t.string   "query",        :limit => 1024
     t.integer  "status"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   create_table "filters", :force => true do |t|
@@ -131,11 +134,11 @@ ActiveRecord::Schema.define(:version => 20120720092455) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.text     "data"
-    t.boolean  "admin",                  :default => false, :null => false
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.string   "email",                  :default => "",    :null => false
-    t.string   "encrypted_password",     :default => "",    :null => false
+    t.integer  "role",                   :default => 0
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

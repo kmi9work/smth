@@ -44,6 +44,8 @@ $height: 760px;
   width: $width - 160px;
   height: 100%;
   border-right: 2px solid #999;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 #rightside{
@@ -56,15 +58,15 @@ $height: 760px;
 }
 
 .criterions_filter{
-  float: left;
-  vertical-align: top;
   display: inline-block; 
   width: 100px;
-  height: 100%;
-  top: 0px;
+  height: $height;
   overflow-y: auto;
   overflow-x: hidden;
   border-right: 2px solid #999;
+  top:0;
+  vertical-align: top;
+  word-wrap:break-word;
   ul li.selected{
     background: #ccc;
   }
@@ -84,12 +86,23 @@ $height: 760px;
 
 // ARTICLE
 
+.alert{
+  color: red;
+}
 .article_criterion{
   display: inline-block;
 }
 
 #article_criterions{
   
+}
+
+#all_filters_criterions{
+  width: 150px;
+}
+
+#all_selected_filters{
+  width: 150px;
 }
 
 
@@ -101,10 +114,8 @@ $height: 760px;
 }
 
 #selected_filters{
-  border-top: 1px solid gray;
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
-  width: $width;
+  border-bottom: 1px solid gray;
+  width: $width - 160px;
   background: #fff;
   height: 20px;
   .filter{
@@ -119,9 +130,10 @@ $height: 760px;
     color: #950114;
   }
 }
-.selected{
+.filter.selected{
   display: inline-block;
   float: left;
+  border-bottom: 2px solid #999;
 }
 
 

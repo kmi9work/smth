@@ -3,8 +3,10 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.text :data
-      t.boolean :admin, default: false, null: false
-
+      t.integer :role, default: 0
+      # 1 - registered, 2 - trusted, 3 - moderate, 4 - admin
+      
+      
       t.timestamps
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""

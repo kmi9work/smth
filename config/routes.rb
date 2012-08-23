@@ -1,14 +1,11 @@
 Altereot::Application.routes.draw do
   
-
-  match 'autocomplete_criterion/:filter_id.json' => 'articles#autocomplete_criterion', :as => :autocomplete_criterion
-  
   match 'article/:id/criterion/:criterion_id/delete' => 'articles#criterion_delete', :as => :article_criterion_delete
   
   match 'date_sort/:date_type(/:order_by)' => 'articles#date_sort', :as => :date_sort
   match 'criterion_choose/:criterion_id' => 'articles#criterion_choose', :as => :criterion_choose
   match 'reset_filter_selection' => 'articles#reset_filter_selection', :as => :reset_filter_selection
-  match 'select_filter/:filter_id' => 'articles#select_filter', :as => :select_filter
+  match 'select_filter/:filter_id(.:format)' => 'articles#select_filter', :as => :select_filter
   match 'filter_sort/:index/:order_by' => 'articles#filter_sort', :as => :filter_sort
   match 'delete_filter_selection/:index' => 'articles#delete_filter_selection', :as => :delete_filter_selection ###???
   
@@ -29,7 +26,15 @@ Altereot::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  resources :articles 
+  resources :articles do
+    collection do
+      get 'search'
+      post 'update_search'
+    end
+  end
+  
+  match 'criterions/:filter_id/autocomplete' => 'criterions#autocomplete'
+  
   
   #DMP-----------------------------------
   devise_for :dmp_admins
@@ -54,60 +59,7 @@ Altereot::Application.routes.draw do
   match 'university_autocomplete(/:country/:city)' => 'dmp#university_autocomplete', :as => :university_autocomplete
   #DMP===================================
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
   root :to => 'dmp#index'
 
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end

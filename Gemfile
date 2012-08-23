@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-
+gem 'haml'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -17,6 +17,7 @@ gem "mini_magick"
 gem 'acts_as_tree_rails3'
 
 gem 'justonedb'
+gem 'cancan'
 
 # gem 'sqlite3'
 gem 'pg'

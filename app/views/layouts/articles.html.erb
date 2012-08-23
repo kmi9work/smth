@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Altereot</title>
+  <link href='http://fonts.googleapis.com/css?family=Play:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <%= include_gon %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+</head>
+<body>
+  <div id="header">
+    <div id="logo" class="inline">
+      <h1><%= link_to "Суть Времени", "/articles" %></h1>
+      <h4>Энциклопедия Сути Времени</h4>
+    </div>
+    <%= image_tag 'star.jpg', :id => 'star' %>
+    
+  </div>
+  <div id="navbar">
+    <%= link_to 'ГЛАВНАЯ', '/' %> 
+    <%= link_to 'СТАТЬИ', articles_path %> 
+    <%= link_to 'НОВОСТИ', '/news' %> 
+    <%= link_to 'БЛОГИ', '/blogs' %>
+    <%= link_to 'ПОИСК', search_articles_path %>
+    <div class="inline">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
+      <% end %>
+    </div>
+    
+  </div>
+  <div id="main">
+    <div id="leftside" class='inline'>
+      <%= yield :leftside %>
+    </div>
+    <div id="rightside" class='inline'>
+      <div id="user_nav" class="inline">
+        <% if current_user %>
+        Logged in as <%= current_user.email %>.
+        <%= link_to "Log out", logout_path %>
+        <% else %>
+        <%= link_to "Register", register_path %> or
+        <%= link_to "log in", login_path %>
+        <% end %>
+      </div>
+      <div id="new_article">
+        <%= link_to 'New Article', new_article_path %>
+      </div>
+      <div id="filters">
+        <%= render 'filters' %>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+  </div>
+</body>
+</html>
+      

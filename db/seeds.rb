@@ -14,14 +14,32 @@
                 'Автор' => ['С.Е. Кургинян', 'В. Черкесов', 'Н. Стариков', 'Хомяков', 'И. Медведева', 'В. Путин'],
                 'Направление' => ['АЛЬМОР', 'АКСИО', 'Историческое достоинство','Контррегрессивная деятельность', 'Образовательная деятельность', 'Социальная деятельность', 'Территориальная целостность'],
                 'Категория' => ['Статья', 'Блог','Новость','Видеоматериал','Подкаст','Авторский материал'],
-                'Автор публикации' => ['Павел Расинский', 'Мария Мамиконян', 'Анастасия Бушуева', 'Громова Анастасия', 'Иванов Пётр', 'Иван Пупкин', 'Костенчук Михаил'],
+                'Автор публикации' => ['Павел Расинский', 'Мария Мамиконян', 'Анастасия Бушуева', 'Громова Анастасия', 'Иванов Пётр', 'Иван Пупкин', 'Васильев Вася', "Сидоров Вова"],
                 'Событие' => ['Антиоранжевый митинг', 'Митинг на ВДНХ', 'Коллективное письмо против ЮЮ', 'Пикет 10 июля', 'Передача подписных листов в Госдуму', 'Маёвка']
                 }
 
 @users = []
-10.times do |i|
-  @users << User.create(:name => "User#{i}", :data => "#{i**3}", :email => "kmi#{i}@gmail.com", :password => "#{i.to_s * 8}", :password_confirmation => "#{i.to_s * 8}")
+5.times do |i|
+  u = User.create(:name => "user#{i}", :data => "#{i**3}", :email => "user#{i}@eot.su", :password => "user#{i}", :password_confirmation => "user#{i}")
+  u.role = User::ROLES[:registered]
+  u.save
+  @users << u
 end
+u = User.create(:name => "trusted", :data => "trusted", :email => "trusted@eot.su", :password => "trusted", :password_confirmation => "trusted")
+u.role = User::ROLES[:trusted]
+u.save
+@users << u
+
+u = User.create(:name => "moderator", :data => "moderator", :email => "moderator@eot.su", :password => "moderator", :password_confirmation => "moderator")
+u.role = User::ROLES[:moderator]
+u.save
+@users << u
+
+u = User.create(:name => "admin", :data => "admin", :email => "admin@eot.su", :password => "admin", :password_confirmation => "admin")
+u.role = User::ROLES[:admin]
+u.save
+@users << u
+
 
 puts "Users: #{@users.size}"
 # 
@@ -104,8 +122,8 @@ while f.gets
       criterion.save
       article.criterions << criterion
     elsif $_.strip == "user_id:"
-      user = User.find(f.gets.strip)
-      article.user = user
+      # user = User.find(f.gets.strip)
+      article.user = @users[rand(@users.size)]
     end
   end
   article.save

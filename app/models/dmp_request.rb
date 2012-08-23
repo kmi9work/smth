@@ -1,7 +1,20 @@
 class DmpRequest < ActiveRecord::Base
-  attr_accessible :name, :content, :q, :country, :city, :university, :school, :school_year, :uni_year, :age_from, :age_to, :online, :photo, :status, :sex, :offset
+  attr_accessible :name, :content, :q, :country, :city, :university, :school, :school_year, :uni_year, :age_from, :age_to, :online, :photo, :status, :sex, :offset, :start_offset, :group, :query
   validates :name, :presence => true
   validates :content, :presence => true
+  
+  before_save :check_query
+  
+  def check_query
+    if query.present?
+      if query =~ /(\&?offset=\d+)/
+        self.query.sub!($1, '')
+      end
+      if query =~ /((http:\/\/)?vk.com.+\?)/
+        self.query.sub!($1, '')
+      end
+    end
+  end
   
   def vk_attrs
     return attributes.delete_if{|k,v| [:name, :id, :content, :created_at, :updated_at, :offset].include?(k.to_sym)}

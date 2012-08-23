@@ -110,9 +110,8 @@ class DmpController < ApplicationController
   
   def create
     request_params = get_request_from_params params[:dmp_request]
-    puts "create:"
-    p request_params
     @dmp_request = DmpRequest.new(request_params)
+    @dmp_request.start_offset = @dmp_request.offset
     if @dmp_request.valid?
       @dmp_request.save
       redirect_to '/dmp', :notice => "created"
@@ -132,6 +131,8 @@ class DmpController < ApplicationController
     request_params = get_request_from_params params[:dmp_request]
     puts "update:"
     p request_params
+    @dmp_request.start_offset = request_params[:offset]
+    request_params.delete(:offset)
     if @dmp_request.update_attributes(request_params)
       redirect_to '/dmp', :notice => "updated"
     else

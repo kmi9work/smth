@@ -161,7 +161,19 @@ inner join articles_criterions ac on a.id = ac.article_id
 inner join articles_criterions acc on a.id = acc.article_id
 where ac.criterion_id = 4 and acc.criterion_id = 8;
   
-  
+
+
+select distinct a.*, c.name as cname from articles a
+INNER JOIN articles_criterions ac ON ac.article_id = a.id 
+INNER JOIN criterions c ON c.id = ac.criterion_id
+where a.id in (
+select distinct a.id from articles a
+inner join articles_criterions ac on a.id = ac.article_id
+inner join articles_criterions acc on a.id = acc.article_id
+where ( ac.criterion_id = 15 or acc.criterion_id = 9 )
+)
+order by c.name desc
+;
   
   
   

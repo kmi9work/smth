@@ -1,0 +1,37 @@
+= content_for :head do
+  - @selected_filters.each do |filter, order_by| 
+    :javascript
+      $(document).ready(function(){
+        $('#criterions_filter_#{filter.id}_hide').click(function(){
+          $("#criterions_filter_#{filter.id}").toggle();
+          return false;
+        });
+      })
+
+= content_for :leftside do
+  #left_container{style: "width: #{152 + @selected_filters.size*102}px;"}
+    #all_filters_criterions.criterions_filter
+      #all_selected_filters.filter.selected 
+        Выбранные:
+      - @all_filters_criterions.each do |filter, criterions|
+        %div{style: "font-weight: bold"}= filter
+        %ul
+          - criterions.each do |criterion| 
+            %li{style: "margin-left: 5px; margin-top: 5px"}= criterion[1]
+          
+    - @selected_filters.each_with_index do |filter_order_by, i| 
+      - filter, order_by = filter_order_by[0], filter_order_by[1]
+      .criterions_filter{id: "criterions_filter_#{filter.id}"}>
+        .filter.selected{id: "filter#{filter.id}"}
+          = link_to filter.name, delete_filter_selection_path(i)
+        %ul
+          - filter.criterions.each do |criterion| 
+            - if session[:criterion_ids] and session[:criterion_ids].include?(criterion.id) 
+              %li{class: "selected"}= link_to criterion.name, criterion_choose_path(criterion.id)
+            - else
+              %li= link_to criterion.name, criterion_choose_path(criterion.id), :title => criterion.name
+        %hr
+        = link_to "ok", '', :id => "criterions_filter_#{filter.id}_hide"
+        / <div id="reset_filter_selection">
+        /           <%= link_to 'clear', reset_filter_selection_path unless @selected_filters.empty? %>
+        /         </div>
