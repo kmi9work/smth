@@ -4,21 +4,23 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tag %>
 </head>
-<body>
-  <%= link_to 'login', new_dmp_admin_session_path %><br>
+<body style="padding: 20px">
+  <%= link_to 'login', new_dmp_admin_session_path %> | <%= link_to 'logout', destroy_dmp_admin_session_path, method: :delete if dmp_admin_signed_in? %><br>
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
   <% end %>
   <hr>
-  <% @dmp_requests.each do |dmp_request| %>
-    <%= link_to dmp_request.name, dmp_show_path(dmp_request.id) %> 
-    <font size="1">
-      <%= link_to "Edit", dmp_edit_path(dmp_request.id) if dmp_admin_signed_in? %> 
-      <%= link_to "Destroy", dmp_destroy_path(dmp_request.id) if dmp_admin_signed_in? %>
-    </font><br>
+  <% if is_user? %>
+    <% @dmp_requests.each do |dmp_request| %>
+      <%= link_to dmp_request.name, dmp_show_path(dmp_request.id) %> 
+      <font size="1">
+        <%= link_to "Edit", dmp_edit_path(dmp_request.id) if is_admin? %> 
+        <%= link_to "Destroy", dmp_destroy_path(dmp_request.id) if is_admin? %>
+      </font><br>
+    <% end %>
   <% end %>
   <hr>
-  <% if dmp_admin_signed_in? %>
+  <% if is_admin? %>
     <%= link_to "Новый запрос", dmp_new_path %>
   <% end %>
 </body>

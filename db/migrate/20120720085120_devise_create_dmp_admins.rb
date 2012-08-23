@@ -32,7 +32,7 @@ class DeviseCreateDmpAdmins < ActiveRecord::Migration
 
       ## Token authenticatable
       # t.string :authentication_token
-
+      t.integer :role, null: false #0 -- blocked, 1 -- user, 2 -- admin
 
       t.timestamps
     end

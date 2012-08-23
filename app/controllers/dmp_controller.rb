@@ -1,7 +1,10 @@
 #encoding: utf-8
 class DmpController < ApplicationController
   layout false
-  before_filter :authenticate_dmp_admin!, :only => [:new, :create, :edit, :update, :destroy]
+  helper_method :is_user?
+  helper_method :is_admin?
+  before_filter :can_user?
+  before_filter :can_admin?, :only => [:new, :create, :edit, :update, :destroy]
   def index
     @dmp_requests = DmpRequest.all
         # while @vkusers.size < 20
@@ -169,5 +172,21 @@ class DmpController < ApplicationController
       params[:school] = school_id
     end
     return params
+  end
+  def is_user?
+    current_dmp_admin and current_dmp_admin.role >= 1
+  end
+  def is_admin?
+    current_dmp_admin and current_dmp_admin.role >= 2
+  end
+  def can_user?
+    unless is_user?
+      redirect_to new_dmp_admin_session_path, notice: "U are not allowed to do this"
+    end
+  end
+  def can_admin?
+    unless is_admin?
+      redirect_to new_dmp_admin_session_path, notice: "U are not allowed to do this"
+    end
   end
 end
