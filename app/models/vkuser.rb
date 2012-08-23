@@ -126,7 +126,7 @@ class Vkuser < ActiveRecord::Base
   end
   
   def Vkuser.clean
-    size = Vkuser.destroy_all(:created_at => 2.hour.ago..1.hour.ago, :sent => false).size
+    size = Vkuser.where(sent: false).find(:all, :conditions => ['created_at < ?', 1.hour.ago]).each{|i| i.destroy}
     if size > 0
       DmpRequest.all{|d| d.offset = d.start_offset; d.save}
     end
