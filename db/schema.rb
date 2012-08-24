@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720092455) do
+ActiveRecord::Schema.define(:version => 20120824104043) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(:version => 20120720092455) do
   create_table "criterions", :force => true do |t|
     t.integer "filter_id"
     t.string  "name"
+  end
+
+  create_table "dmp_admin_dmp_request_vkusers", :force => true do |t|
+    t.integer  "vkuser_id"
+    t.integer  "dmp_admin_id"
+    t.integer  "dmp_request_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "dmp_admins", :force => true do |t|

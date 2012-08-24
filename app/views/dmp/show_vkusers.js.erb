@@ -6,6 +6,7 @@
   <% if @vkusers.blank? %>
     $('#vkusers').html("Поздравляем, список обработан полностью!");
   <% else %>
+    $('#vkusers').html("");
     <% @vkusers.each do |vkuser|%>
       $('#vkusers').append("                                                                         \
       <a id='<%= vkuser.vkid %>' href='http://vk.com/write<%= vkuser.vkid %>' target='_blank'>       \

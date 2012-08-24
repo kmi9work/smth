@@ -2,7 +2,8 @@ class DmpRequest < ActiveRecord::Base
   attr_accessible :name, :content, :q, :country, :city, :university, :school, :school_year, :uni_year, :age_from, :age_to, :online, :photo, :status, :sex, :offset, :start_offset, :group, :query
   validates :name, :presence => true
   validates :content, :presence => true
-  
+  has_many :dmp_admin_dmp_request_vkusers
+  has_many :vkusers, through: :dmp_admin_dmp_request_vkusers
   before_save :check_query
   
   def check_query

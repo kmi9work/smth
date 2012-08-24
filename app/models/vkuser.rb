@@ -4,20 +4,33 @@ require 'nokogiri'
 require 'iconv'
 class Vkuser < ActiveRecord::Base
   attr_accessible :vkid
-
   validates :vkid, :uniqueness => true
-
-  def Vkuser.get_vkusers dmp_request, offset #if returns nil --> vk DOM changed
+  has_one :dmp_admin_dmp_request_vkuser
+  def dmp_admin
+    dmp_admin_dmp_request_vkuser.try(:dmp_admin)
+  end
+  
+  def set_dmp_admin_request admin, request
+    dmp_admin_dmp_request_vkuser = DmpAdminDmpRequestVkuser.new
+    dmp_admin_dmp_request_vkuser.dmp_request = request
+    dmp_admin_dmp_request_vkuser.vkuser = self
+    dmp_admin_dmp_request_vkuser.dmp_admin = admin
+    dmp_admin_dmp_request_vkuser.save
+  end
+  
+  def dmp_request
+    dmp_admin_dmp_request_vkuser.try(:dmp_request)
+  end
+  
+  def Vkuser.get_vkusers dmp_request, offset, dmp_admin #if returns nil --> vk DOM changed
     http = Net::HTTP.new('vk.com', 80)
     path = '/al_search.php'
     if dmp_request.query.present?
-      data = "#{dmp_request.query}&offset=#{offset}"
+      query = "al=1&#{dmp_request.query}&offset=#{offset}"
     else
-      data = "al=1&#{dmp_request.vk_attrs.delete_if{|k,v| v.blank? or v == 0}.map{|k, v| "c%5B#{k}%5D=#{v}"}.join('&')}&offset=#{offset}"
+      query = "al=1&#{dmp_request.vk_attrs.delete_if{|k,v| v.blank? or v == 0}.map{|k, v| "c%5B#{k}%5D=#{v}"}.join('&')}&offset=#{offset}"
     end
-    puts "-------------vkusers request"
-    p data
-    puts "============"
+    puts query
     # data = 'al=1&c%5Bcountry%5D=1&c%5Bname%5D=1&c%5Bq%5D=trolo&c%5Bsection%5D=people&offset=40'
     headers = { 
       'X-Requested-With' => 'XMLHttpRequest', 
@@ -29,7 +42,7 @@ class Vkuser < ActiveRecord::Base
       'Content-Type' => 'application/x-www-form-urlencoded'
     }
 
-    resp, data = http.post(path, data, headers)
+    resp, data = http.post(path, query, headers)
 
 
     # Output on the screen -> we should get either a 302 redirect (after a successful login) or an error page
@@ -40,6 +53,7 @@ class Vkuser < ActiveRecord::Base
     gz = Zlib::GzipReader.new(StringIO.new(data))    
     xml = Iconv.conv('UTF-8', 'CP1251', gz.read)
     puts xml
+    status = 2 if xml =~ /"has_more":false/
     doc = Nokogiri::HTML(xml)
     regex_id = Regexp.new(/Searcher\.bigphOver\(this, (\d+)\)/)
     matched = true
@@ -54,6 +68,7 @@ class Vkuser < ActiveRecord::Base
           u = Vkuser.new(:vkid => vk_id)
           if u.valid?
             u.save
+            u.set_dmp_admin_request dmp_admin, dmp_request
             vkusers << u
           end
         else
@@ -63,7 +78,6 @@ class Vkuser < ActiveRecord::Base
       last = i
     end
     status = 3 if vkusers.empty? #add offsets
-    status = 2 if last < 19 #last search
     status = 0 unless fl
     status = 1 unless matched #vk DOM changed
     return vkusers, status
