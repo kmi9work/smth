@@ -9,7 +9,7 @@
     <h1><%= @dmp_request.name %></h1>
     <div id="request_content">
       Содержание сообщения: <br>
-      <p class="dmp_content"><%= @dmp_request.content %></p>
+      <p class="dmp_content" id='dmp_content'><%= @dmp_request.content %></p>
       <hr>
       <% if is_admin? %>
         Параметры: <br>
