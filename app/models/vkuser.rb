@@ -30,7 +30,7 @@ class Vkuser < ActiveRecord::Base
     else
       query = "al=1&#{dmp_request.vk_attrs.delete_if{|k,v| v.blank? or v == 0}.map{|k, v| "c%5B#{k}%5D=#{v}"}.join('&')}&offset=#{offset}"
     end
-    puts query
+    # puts query
     # data = 'al=1&c%5Bcountry%5D=1&c%5Bname%5D=1&c%5Bq%5D=trolo&c%5Bsection%5D=people&offset=40'
     headers = { 
       'X-Requested-With' => 'XMLHttpRequest', 
@@ -52,7 +52,7 @@ class Vkuser < ActiveRecord::Base
 
     gz = Zlib::GzipReader.new(StringIO.new(data))    
     xml = Iconv.conv('UTF-8', 'CP1251', gz.read)
-    puts xml
+    # puts xml
     status = 2 if xml =~ /"has_more":false/
     doc = Nokogiri::HTML(xml)
     regex_id = Regexp.new(/Searcher\.bigphOver\(this, (\d+)\)/)
@@ -96,7 +96,7 @@ class Vkuser < ActiveRecord::Base
   def Vkuser.get_universities country, city, str
     act = "a_get_universities"
     ans = get_search_ajax act, country, city, str
-    puts ans
+    # puts ans
     if country == 0 and city == 0
       ans.scan(/\[\"\d+?\",\"(.+?)\"\]/u).flatten
     else
@@ -130,7 +130,7 @@ class Vkuser < ActiveRecord::Base
   def Vkuser.get_city_id country, str
     act = "a_get_cities"
     ans = get_search_ajax act, country, nil, str
-    puts ans
+    # puts ans
     ans.match(/\['(\d+?)','#{str}','.+?','\d+?'\]/u)[1].to_i
   end
   
@@ -140,7 +140,7 @@ class Vkuser < ActiveRecord::Base
   end
   
   def Vkuser.clean
-    size = Vkuser.where(sent: false).find(:all, :conditions => ['created_at < ?', 1.hour.ago]).each{|i| i.destroy}
+    size = Vkuser.where(sent: false).find(:all, :conditions => ['created_at < ?', 1.hour.ago]).each{|i| i.destroy}.size
     if size > 0
       DmpRequest.all{|d| d.offset = d.start_offset; d.save}
     end
@@ -153,7 +153,7 @@ class Vkuser < ActiveRecord::Base
     data += "&country=#{country}" if country
     data += "&city=#{city}" if city
     data += "&str=#{str}" if str
-    puts "request: #{data}"
+    # puts "request: #{data}"
     # data = Iconv.conv('CP1251', 'UTF-8', data)
     headers = { 
       'X-Requested-With' => 'XMLHttpRequest', 
