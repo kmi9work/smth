@@ -70,7 +70,7 @@ class DmpController < ApplicationController
   #  
   def show
     @dmp_request = DmpRequest.find(params[:id])
-    @vkusers = current_dmp_admin.vkusers @dmp_request
+    @vkusers = current_dmp_admin.vkusers(@dmp_request).compact
     if @dmp_request.query.present?
       @query = "#{@dmp_request.query}"
     else
