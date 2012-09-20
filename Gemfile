@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.3'
 gem 'haml'
@@ -6,32 +6,32 @@ gem 'haml'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
-gem 'zero-clipboard-rails'
+#gem 'zero-clipboard-rails'
 gem "devise"
 gem 'gon'
 
-gem "will_paginate"
+#gem "will_paginate"
 gem 'jquery-rails'
 
-gem "carrierwave"
-gem "mini_magick"
+#gem "carrierwave"
+#gem "mini_magick"
 
-gem 'acts_as_tree_rails3'
+#gem 'acts_as_tree_rails3'
 
-gem 'justonedb'
-gem 'cancan'
+#gem 'justonedb'
+#gem 'cancan'
 
-# gem 'sqlite3'
-gem 'pg'
-gem "ckeditor"#, "~> 3.7.1"
-gem 'acts-as-taggable-on'#, '~> 2.2.2'
+gem 'sqlite3'
+#gem 'pg'
+#gem "ckeditor"#, "~> 3.7.1"
+#gem 'acts-as-taggable-on'#, '~> 2.2.2'
 
-gem "rspec-rails", :group => [:test, :development]
+#gem "rspec-rails", :group => [:test, :development]
 group :test do
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem "guard-rspec"
-  gem "rb-fsevent"
+  #gem "factory_girl_rails"
+  #gem "capybara"
+  #gem "guard-rspec"
+  #gem "rb-fsevent"
 end
 
 # Gems used only for assets and not required
@@ -55,10 +55,10 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-gem 'unicorn'
+#gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+#gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

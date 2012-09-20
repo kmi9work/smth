@@ -6,7 +6,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+=begin
 @words = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'.split()
 @filter_hash = {'газета' => ['Коммерсант', 'Ведомости', 'Завтра', 'Комсомольская правда'], 
                 'дата' => ['9 октября 2007', '12.04.2012', '11.02.2009', '18 фев 2012', '4 май 2011'], 
@@ -172,3 +172,18 @@ end
 puts "Top comments: #{@top_comments.size}"
 puts "Comments: #{@comments.size}"
 
+=end
+
+users = []
+chars = ['0'..'9','a'..'z','A'..'Z'].map{ |r| r.to_a }.flatten
+32.times do |i|
+  pass = Array.new(8){ chars[ rand( chars.size ) ] }.join
+  da = DmpAdmin.new(email: "camrade#{i+1}@vk.uao.su", password: "qwerty", password_confirmation: "qwerty")
+  da.role = 1
+  da.save
+  users << {user: da, password: pass}
+end
+
+admin = DmpAdmin.new(email: "admin@vk.uao.su", password: "qwerty", password_confirmation: "qwerty")
+admin.role = 2
+admin.save

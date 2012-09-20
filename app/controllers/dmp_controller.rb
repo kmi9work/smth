@@ -71,11 +71,7 @@ class DmpController < ApplicationController
   def show
     @dmp_request = DmpRequest.find(params[:id])
     @vkusers = current_dmp_admin.vkusers(@dmp_request).compact
-    if @dmp_request.query.present?
-      @query = "#{@dmp_request.query}"
-    else
-      @query = "#{@dmp_request.vk_attrs.delete_if{|k,v| v.blank? or v == 0}.map{|k, v| "c%5B#{k}%5D=#{v}"}.join('&')}"
-    end
+    @content = ""
   end
   
   def show_vkusers
@@ -85,27 +81,23 @@ class DmpController < ApplicationController
     vksize_buf = -1
     offset = @dmp_request.offset
     @error = nil
-    puts "show_vkusers:"
-    puts @vkusers.size, index
+    @content = Vkuser.get_vkusers(@dmp_request, offset, current_dmp_admin)
     while @vkusers.size < 20 and (index += 1) <= 100
-      puts "while: #{index}"
-      vksize_buf = @vkusers.size
       ans, status = Vkuser.get_vkusers(@dmp_request, offset, current_dmp_admin) 
       if status == 1
         @error = "Vk DOM changed"
         break 
-      elsif status == 0
-        @error = "Nothing found"
+      elsif status == 2
         break
       end
       @vkusers += ans
-      break if status = 2
-      if status == 3
+      if status == 0
         @dmp_request.offset += 20
         @dmp_request.save
       end
       offset += 20
     end
+    render 'show'
   end
     
   def vkuser_sent

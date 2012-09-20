@@ -17,7 +17,7 @@
         <% @dmp_request.vk_attrs.delete_if{|k, v| v.blank?}.each do |k, v| %>
           <p><%= k %>: <%= v %></p>
         <% end %>
-        <a href="http://vk.com/search?<%= @query %>"> check url </a>
+        <a href="http://vk.com/search?<%= @dmp_request.query %>"> check url </a>
       <% end %>
       <span id="check_url"></span> 
     </div>
@@ -25,8 +25,9 @@
     <%= link_to "Edit", dmp_edit_path(@dmp_request.id) if is_admin? %> 
     <%= link_to "Destroy", dmp_destroy_path(@dmp_request.id) if is_admin? %>
   </div>
-  <%= link_to "Получить список отправки", dmp_show_vkusers_path(@dmp_request.id), :remote => true %>
+  <%= link_to "Получить список отправки", dmp_show_vkusers_path(@dmp_request.id) %>
   <div id="vkusers">
+    <%= raw @content %>
     <% @vkusers.each do |vkuser| %>
       <%= link_to "http://vk.com/write#{vkuser.vkid}", "http://vk.com/write#{vkuser.vkid}", :target => "_blank", id: vkuser.vkid.to_s %><br>
       <script>                                                                                       

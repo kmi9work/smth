@@ -22,14 +22,10 @@ class Vkuser < ActiveRecord::Base
     dmp_admin_dmp_request_vkuser.try(:dmp_request)
   end
   
-  def Vkuser.get_vkusers dmp_request, offset, dmp_admin #if returns nil --> vk DOM changed
-    http = Net::HTTP.new('vk.com', 80)
-    path = '/al_search.php'
-    if dmp_request.query.present?
-      query = "al=1&#{dmp_request.query}&offset=#{offset}"
-    else
-      query = "al=1&#{dmp_request.vk_attrs.delete_if{|k,v| v.blank? or v == 0}.map{|k, v| "c%5B#{k}%5D=#{v}"}.join('&')}&offset=#{offset}"
-    end
+  def Vkuser.get_vkusers request, offset, dmp_admin #if returns nil --> vk DOM changed
+    uri = URI('http://vk.com/al_search.php')
+    req = Net::HTTP::Post.new(uri.path)
+    query = "al=1&#{request.query}&offset=#{offset}"
     # puts query
     # data = 'al=1&c%5Bcountry%5D=1&c%5Bname%5D=1&c%5Bq%5D=trolo&c%5Bsection%5D=people&offset=40'
     headers = { 
@@ -42,7 +38,17 @@ class Vkuser < ActiveRecord::Base
       'Content-Type' => 'application/x-www-form-urlencoded'
     }
 
-    resp, data = http.post(path, query, headers)
+    data = {
+            'al' => 1,
+            'offset' => offset
+    }
+    data.merge! request_to_data(request.query)
+    headers.each { |key, value| req[key] = value }
+    req.set_form_data(data)
+    res = Net::HTTP.start(uri.hostname, uri.port) do |http|
+      http.request(req)
+    end
+
 
 
     # Output on the screen -> we should get either a 302 redirect (after a successful login) or an error page
@@ -50,35 +56,32 @@ class Vkuser < ActiveRecord::Base
     #     puts 'Message = ' + resp.message
     #     resp.each {|key, val| puts key + ' = ' + val}
 
-    gz = Zlib::GzipReader.new(StringIO.new(data))    
+    gz = Zlib::GzipReader.new(StringIO.new(res.body))
     xml = Iconv.conv('UTF-8', 'CP1251', gz.read)
+    if xml =~ /"has_more":(true|false)/
+      status = 2 if $2 == "false"
+      status = 0 if $2 == "true"
+    end
     # puts xml
-    status = 2 if xml =~ /"has_more":false/
     doc = Nokogiri::HTML(xml)
     regex_id = Regexp.new(/Searcher\.bigphOver\(this, (\d+)\)/)
     matched = true
     vkusers = []
-    fl = false
-    last = -1
     doc.css('.img.search_bigph_wrap.fl_l').each_with_index do |div, i|
       if div['onmouseover']
         if div['onmouseover'].match(regex_id)
-          fl = true
           vk_id = div['onmouseover'].match(regex_id)[1].to_i
           u = Vkuser.new(:vkid => vk_id)
           if u.valid?
             u.save
-            u.set_dmp_admin_request dmp_admin, dmp_request
+            u.set_dmp_admin_request dmp_admin, request
             vkusers << u
           end
         else
           matched = false
         end
       end
-      last = i
     end
-    status = 3 if vkusers.empty? #add offsets
-    status = 0 unless fl
     status = 1 unless matched #vk DOM changed
     return vkusers, status
   end
@@ -147,6 +150,13 @@ class Vkuser < ActiveRecord::Base
   end
   
   protected
+  def Vkuser.request_to_data str
+    h = {}
+    if str =~ /[\?&](.+)=([^\?&]+)/
+      h[$1] = $2
+    end
+    return h
+  end
 
   def Vkuser.get_search_ajax act, country, city, str
     data = "act=#{act}"

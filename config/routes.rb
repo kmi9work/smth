@@ -1,5 +1,5 @@
 Altereot::Application.routes.draw do
-  
+=begin
   match 'article/:id/criterion/:criterion_id/delete' => 'articles#criterion_delete', :as => :article_criterion_delete
   
   match 'date_sort/:date_type(/:order_by)' => 'articles#date_sort', :as => :date_sort
@@ -35,7 +35,7 @@ Altereot::Application.routes.draw do
   
   match 'criterions/:filter_id/autocomplete' => 'criterions#autocomplete'
   
-  
+=end
   #DMP-----------------------------------
   devise_for :dmp_admins
   match 'dmp' => 'dmp#index', :as => :dmp

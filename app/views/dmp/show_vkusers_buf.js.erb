@@ -1,0 +1,27 @@
+<% if @error %>
+  $('#vkusers').append("<hr>");
+  $('#vkusers').append('<div class="notice"><%= @error %></div>');
+<% else %>
+  $('#vkusers').append("<hr>");
+  <% if @vkusers.blank? %>
+    $('#vkusers').html("Поздравляем, список обработан полностью!");
+  <% else %>
+    $('#vkusers').html("");
+    <% @vkusers.each do |vkuser|%>
+      $('#vkusers').append("                                                                         \
+      <a id='<%= vkuser.vkid %>' href='http://vk.com/write<%= vkuser.vkid %>' target='_blank'>       \
+        http://vk.com/write<%= vkuser.vkid %>                                                        \
+      </a><br>                                                                                       \
+      <script>                                                                                       \
+        $('#<%= vkuser.vkid %>').click(function(){                                                   \
+          $.ajax({                                                                                   \
+            type: 'POST',                                                                            \
+            url: '/vkuser_sent',                                                                     \
+            data: {vkid: <%= vkuser.vkid %>}                                                         \
+          });                                                                                        \
+          $('#<%= vkuser.vkid %>').attr('class', 'dmp_sent');                                        \
+        })                                                                                           \
+      </script>");
+    <% end %>
+  <% end %>
+<% end %>
