@@ -18,11 +18,11 @@ gem 'jquery-rails'
 
 #gem 'acts_as_tree_rails3'
 
-#gem 'justonedb'
+gem 'justonedb'
 #gem 'cancan'
 
-gem 'sqlite3'
-#gem 'pg'
+#gem 'sqlite3'
+gem 'pg'
 #gem "ckeditor"#, "~> 3.7.1"
 #gem 'acts-as-taggable-on'#, '~> 2.2.2'
 
