@@ -27,7 +27,6 @@
   </div>
   <%= link_to "Получить список отправки", dmp_show_vkusers_path(@dmp_request.id) %>
   <div id="vkusers">
-    <%= raw @content %>
     <% @vkusers.each do |vkuser| %>
       <%= link_to "http://vk.com/write#{vkuser.vkid}", "http://vk.com/write#{vkuser.vkid}", :target => "_blank", id: vkuser.vkid.to_s %><br>
       <script>                                                                                       
