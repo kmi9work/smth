@@ -23,6 +23,7 @@ class Vkuser < ActiveRecord::Base
   end
   
   def Vkuser.get_vkusers request, offset, dmp_admin #if returns nil --> vk DOM changed
+    puts "offset: #{offset}"
     uri = URI('http://vk.com/al_search.php')
     req = Net::HTTP::Post.new(uri.path)
     query = "al=1&#{request.query}&offset=#{offset}"
@@ -59,8 +60,8 @@ class Vkuser < ActiveRecord::Base
     gz = Zlib::GzipReader.new(StringIO.new(res.body))
     xml = Iconv.conv('UTF-8', 'CP1251', gz.read)
     if xml =~ /"has_more":(true|false)/
-      status = 2 if $2 == "false"
-      status = 0 if $2 == "true"
+      (status = 2; puts "has_more: false") if $2 == "false"
+      (status = 0; puts "has_more: true") if $2 == "true"
     end
     # puts xml
     doc = Nokogiri::HTML(xml)
@@ -73,6 +74,7 @@ class Vkuser < ActiveRecord::Base
           vk_id = div['onmouseover'].match(regex_id)[1].to_i
           u = Vkuser.new(:vkid => vk_id)
           if u.valid?
+            puts "Vkuser added"
             u.save
             u.set_dmp_admin_request dmp_admin, request
             vkusers << u

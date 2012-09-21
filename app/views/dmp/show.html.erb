@@ -35,7 +35,8 @@
             type: 'POST',                                                                            
             url: '/vkuser_sent',                                                                     
             data: {vkid: <%= vkuser.vkid %>}                                                         
-          })                                                                                         
+          })
+          $(this).attr('class', 'dmp_sent');
         })                                                                                           
       </script>
     <% end %>
