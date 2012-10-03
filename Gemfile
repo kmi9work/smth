@@ -20,6 +20,7 @@ gem "mini_magick"
 
 gem 'justonedb'
 #gem 'cancan'
+gem 'postgres'
 
 #gem 'sqlite3'
 gem 'pg'

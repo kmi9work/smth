@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c187a910-e729-4188-ae6e-7d803c13036b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/vkuser.rb" afterPath="$PROJECT_DIR$/app/models/vkuser.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dmp.iml" afterPath="$PROJECT_DIR$/.idea/dmp.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
     </list>
     <ignored path="dmp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,10 +36,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vkuser.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="vkuser.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/vkuser.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="5" selection-start="2246" selection-end="2246" vertical-scroll-proportion="-0.26608697">
+            <state line="63" column="5" selection-start="2246" selection-end="2246" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="13" selection-start="352" selection-end="352" vertical-scroll-proportion="0.6642984">
               <folding />
             </state>
           </provider>
@@ -68,12 +78,12 @@
         <option value="$PROJECT_DIR$/app/views/dmp/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/dmp/_form.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/article.rb" />
         <option value="$PROJECT_DIR$/app/models/comment.rb" />
         <option value="$PROJECT_DIR$/app/models/ability.rb" />
         <option value="$PROJECT_DIR$/app/controllers/dmp_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/vkuser.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -513,13 +523,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="1" selection-start="341" selection-end="341" vertical-scroll-proportion="0.32807016">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/dmp_admin.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="0" selection-start="658" selection-end="658" vertical-scroll-proportion="0.4473684">
@@ -571,7 +574,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/vkuser.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="5" selection-start="2246" selection-end="2246" vertical-scroll-proportion="-0.26608697">
+        <state line="63" column="5" selection-start="2246" selection-end="2246" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="13" selection-start="352" selection-end="352" vertical-scroll-proportion="0.6642984">
           <folding />
         </state>
       </provider>
