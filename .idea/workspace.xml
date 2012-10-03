@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c187a910-e729-4188-ae6e-7d803c13036b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dmp.iml" afterPath="$PROJECT_DIR$/.idea/dmp.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
     </list>
     <ignored path="dmp.iws" />
@@ -48,7 +47,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="13" selection-start="352" selection-end="352" vertical-scroll-proportion="0.6642984">
+            <state line="22" column="7" selection-start="346" selection-end="346" vertical-scroll-proportion="0.6642984">
               <folding />
             </state>
           </provider>
@@ -581,7 +580,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="13" selection-start="352" selection-end="352" vertical-scroll-proportion="0.6642984">
+        <state line="22" column="7" selection-start="346" selection-end="346" vertical-scroll-proportion="0.6642984">
           <folding />
         </state>
       </provider>
