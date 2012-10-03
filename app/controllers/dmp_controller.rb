@@ -76,7 +76,7 @@ class DmpController < ApplicationController
   
   def show_vkusers
     @dmp_request = DmpRequest.find(params[:id])
-    @vkusers = current_dmp_admin.vkusers @dmp_request
+    @vkusers = current_dmp_admin.vkusers(@dmp_request).compact
     index = 0
     vksize_buf = -1
     offset = @dmp_request.offset
@@ -97,6 +97,7 @@ class DmpController < ApplicationController
       end
       offset += 20
     end
+    @vkusers.compact!
     render 'show'
   end
     
