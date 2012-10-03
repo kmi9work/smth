@@ -23,7 +23,7 @@ class Vkuser < ActiveRecord::Base
   end
   
   def Vkuser.get_vkusers request, offset, dmp_admin #if returns nil --> vk DOM changed
-    puts "offset: #{offset}"
+    #puts "offset: #{offset}"
     uri = URI('http://vk.com/al_search.php')
     req = Net::HTTP::Post.new(uri.path)
     query = "al=1&#{request.query}&offset=#{offset}"
@@ -45,11 +45,7 @@ class Vkuser < ActiveRecord::Base
             'c[section]' => 'people',
             'offset' => offset
     }
-    puts '-----'
-    puts URI::unescape(request.query)
-    puts '====='
     data.merge! request_to_data(URI::unescape(request.query))
-    puts data
     headers.each { |key, value| req[key] = value }
     req.set_form_data(data)
     res = Net::HTTP.start(uri.host, uri.port) do |http|
@@ -65,7 +61,7 @@ class Vkuser < ActiveRecord::Base
 
     gz = Zlib::GzipReader.new(StringIO.new(res.body))
     xml = Iconv.conv('UTF-8', 'CP1251', gz.read)
-    puts xml
+    #puts xml
     if xml =~ /"has_more":(true|false)/
       (status = 2; puts "has_more: false") if $1 == "false"
       (status = 0; puts "has_more: true") if $1 == "true"
