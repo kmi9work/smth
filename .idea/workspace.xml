@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c187a910-e729-4188-ae6e-7d803c13036b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dmp.iml" afterPath="$PROJECT_DIR$/.idea/dmp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/vkuser.rb" afterPath="$PROJECT_DIR$/app/models/vkuser.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dmp/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/dmp/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dmp/show.html.erb" afterPath="$PROJECT_DIR$/app/views/dmp/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <ignored path="dmp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="13" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
+            <state line="23" column="1" selection-start="341" selection-end="341" vertical-scroll-proportion="0.32807016">
               <folding />
             </state>
           </provider>
@@ -91,10 +80,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/dmp/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="133" selection-start="373" selection-end="373" vertical-scroll-proportion="0.2881356">
+            <state line="9" column="133" selection-start="373" selection-end="373" vertical-scroll-proportion="-5.8846154">
               <folding />
             </state>
           </provider>
@@ -148,7 +137,6 @@
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/views/dmp/show_vkusers.js.erb" />
         <option value="$PROJECT_DIR$/app/controllers/dmp_controller.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
@@ -156,6 +144,7 @@
         <option value="$PROJECT_DIR$/app/views/dmp/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/dmp/_form.html.erb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -528,11 +517,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="13" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="24" selection-start="889" selection-end="889" vertical-scroll-proportion="0.0" />
@@ -575,7 +559,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dmp/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="133" selection-start="373" selection-end="373" vertical-scroll-proportion="0.2881356">
+        <state line="9" column="133" selection-start="373" selection-end="373" vertical-scroll-proportion="-5.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="1" selection-start="341" selection-end="341" vertical-scroll-proportion="0.32807016">
           <folding />
         </state>
       </provider>
