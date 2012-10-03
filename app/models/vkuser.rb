@@ -52,7 +52,7 @@ class Vkuser < ActiveRecord::Base
     puts data
     headers.each { |key, value| req[key] = value }
     req.set_form_data(data)
-    res = Net::HTTP.start(uri.hostname, uri.port) do |http|
+    res = Net::HTTP.start(uri.host, uri.port) do |http|
       http.request(req)
     end
 
