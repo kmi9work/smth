@@ -1,4 +1,5 @@
 Altereot::Application.configure do
+  config.assets.precompile += Ckeditor.assets
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests

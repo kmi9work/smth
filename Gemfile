@@ -13,8 +13,8 @@ gem 'gon'
 #gem "will_paginate"
 gem 'jquery-rails'
 
-#gem "carrierwave"
-#gem "mini_magick"
+gem "carrierwave"
+gem "mini_magick"
 
 #gem 'acts_as_tree_rails3'
 
@@ -23,7 +23,7 @@ gem 'justonedb'
 
 gem 'sqlite3'
 gem 'pg'
-#gem "ckeditor"#, "~> 3.7.1"
+gem "ckeditor"#, "~> 3.7.1"
 #gem 'acts-as-taggable-on'#, '~> 2.2.2'
 
 #gem "rspec-rails", :group => [:test, :development]

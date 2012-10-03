@@ -1,4 +1,6 @@
 Altereot::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
 =begin
   match 'article/:id/criterion/:criterion_id/delete' => 'articles#criterion_delete', :as => :article_criterion_delete
   
@@ -37,6 +39,7 @@ Altereot::Application.routes.draw do
   
 =end
   #DMP-----------------------------------
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :dmp_admins
   match 'dmp' => 'dmp#index', :as => :dmp
   match 'dmp/show/:id' => 'dmp#show', :as => :dmp_show

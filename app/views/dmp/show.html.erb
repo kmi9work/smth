@@ -9,7 +9,7 @@
     <h1><%= @dmp_request.name %></h1>
     <div id="request_content">
       Содержание сообщения: <br>
-      <p class="dmp_content" id='dmp_content'><%= @dmp_request.content %></p>
+      <p class="dmp_content" id='dmp_content'><%= raw @dmp_request.content %></p>
       <hr>
       <% if is_admin? %>
         Параметры: <br>
@@ -28,7 +28,7 @@
   <%= link_to "Получить список отправки", dmp_show_vkusers_path(@dmp_request.id) %>
   <div id="vkusers">
     <% @vkusers.each do |vkuser| %>
-      <%= link_to "http://vk.com/write#{vkuser.vkid}", "http://vk.com/write#{vkuser.vkid}", :target => "_blank", id: vkuser.vkid.to_s %><br>
+      <%= link_to "http://vk.com/write#{vkuser.vkid}", "#", :target => "_blank", id: vkuser.vkid.to_s %><br>
       <script>                                                                                       
         $('#<%= vkuser.vkid %>').click(function(){                                                   
           $.ajax({                                                                                   
@@ -37,6 +37,8 @@
             data: {vkid: <%= vkuser.vkid %>}                                                         
           })
           $(this).attr('class', 'dmp_sent');
+          open_in_new_tab("http://vk.com/write<%=vkuser.vkid%>");
+          return false;
         })                                                                                           
       </script>
     <% end %>

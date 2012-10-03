@@ -12,6 +12,18 @@
   <component name="GemRequirementsHolder" version="3">
     <requirement>
       <requirement>
+        <dependency name="carrierwave" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="ckeditor" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="coffee-rails" version="3.2.1" bound="LATEST_IN_BRANCH" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
@@ -43,6 +55,12 @@
     <requirement>
       <requirement>
         <dependency name="justonedb" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="mini_magick" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -154,6 +172,10 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] launchy (v2.1.2, C:/Ruby193/lib/ruby/gems/1.9.1/gems/launchy-2.1.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] heroku-api (v0.3.5, C:/Ruby193/lib/ruby/gems/1.9.1/gems/heroku-api-0.3.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] netrc (v0.7.7, C:/Ruby193/lib/ruby/gems/1.9.1/gems/netrc-0.7.7)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] mini_magick (v3.4, C:/Ruby193/lib/ruby/gems/1.9.1/gems/mini_magick-3.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] ckeditor (v3.7.1, C:/Ruby193/lib/ruby/gems/1.9.1/gems/ckeditor-3.7.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] carrierwave (v0.6.2, C:/Ruby193/lib/ruby/gems/1.9.1/gems/carrierwave-0.6.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] subexec (v0.2.2, C:/Ruby193/lib/ruby/gems/1.9.1/gems/subexec-0.2.2)" level="application" />
   </component>
 </module>
 

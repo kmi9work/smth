@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require ckeditor/init
 //= require_tree .
+
+function open_in_new_tab(url )
+{
+  window.open(url, '_blank');
+  //window.focus();
+}

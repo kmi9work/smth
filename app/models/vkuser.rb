@@ -41,9 +41,15 @@ class Vkuser < ActiveRecord::Base
 
     data = {
             'al' => 1,
+            'c[name]' => 1,
+            'c[section]' => 'people',
             'offset' => offset
     }
-    data.merge! request_to_data(request.query)
+    puts '-----'
+    puts URI::unescape(request.query)
+    puts '====='
+    data.merge! request_to_data(URI::unescape(request.query))
+    puts data
     headers.each { |key, value| req[key] = value }
     req.set_form_data(data)
     res = Net::HTTP.start(uri.hostname, uri.port) do |http|
@@ -59,9 +65,10 @@ class Vkuser < ActiveRecord::Base
 
     gz = Zlib::GzipReader.new(StringIO.new(res.body))
     xml = Iconv.conv('UTF-8', 'CP1251', gz.read)
+    puts xml
     if xml =~ /"has_more":(true|false)/
-      (status = 2; puts "has_more: false") if $2 == "false"
-      (status = 0; puts "has_more: true") if $2 == "true"
+      (status = 2; puts "has_more: false") if $1 == "false"
+      (status = 0; puts "has_more: true") if $1 == "true"
     end
     # puts xml
     doc = Nokogiri::HTML(xml)
@@ -154,8 +161,8 @@ class Vkuser < ActiveRecord::Base
   protected
   def Vkuser.request_to_data str
     h = {}
-    if str =~ /[\?&](.+)=([^\?&]+)/
-      h[$1] = $2
+    str.scan(/[\?&](.+?)=([^\?&]+)/).each do |key, value|
+      h[key] = value
     end
     return h
   end
