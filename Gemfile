@@ -20,9 +20,9 @@ gem "RedCloth"
 
 gem 'justonedb'
 #gem 'cancan'
-#gem 'pg'
+gem 'pg'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 #gem 'pg'
 gem "ckeditor"#, "~> 3.7.1"
 #gem 'acts-as-taggable-on'#, '~> 2.2.2'
