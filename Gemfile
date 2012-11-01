@@ -15,7 +15,7 @@ gem 'jquery-rails'
 
 gem "carrierwave"
 gem "mini_magick"
-
+gem "RedCloth"
 #gem 'acts_as_tree_rails3'
 
 gem 'justonedb'

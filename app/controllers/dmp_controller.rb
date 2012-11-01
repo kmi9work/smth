@@ -92,10 +92,10 @@ class DmpController < ApplicationController
       end
       @vkusers += ans
       if status == 0
-        @dmp_request.offset += 20
+        @dmp_request.offset += 20 unless @dmp_request.online == 1 or @dmp_request.query.match(/c\[online\]=(\d)/)[1] == "1"
         @dmp_request.save
       end
-      offset += 20
+      offset += 20 unless @dmp_request.online == 1 or @dmp_request.query.match(/c\[online\]=(\d)/)[1] == "1"
     end
     @vkusers.compact!
     render 'show'

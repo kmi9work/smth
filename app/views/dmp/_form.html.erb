@@ -1,4 +1,4 @@
-<%= f.submit 'lets DO IT' %><br>
+<%= f.submit 'Создать задание' %><br>
 Автозаполнение для города, универа и школы пока работает только для России и Москвы.
 <table>
   <tr>
@@ -7,7 +7,7 @@
   </tr>
   <tr>
     <td> Сообщение: </td>
-    <td> <%= f.cktext_area :content, :input_html => { :value => "Текст для отправки пользователям."}, :toolbar => 'Basic', :width => 600 %></td>
+    <td> <%= f.text_area :content, :input_html => { :value => "Текст для отправки пользователям."}, :toolbar => 'Basic', :width => 600 %></td>
   </tr>
   <tr>
     <td>Поисковый URL</td>
