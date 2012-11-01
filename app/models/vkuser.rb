@@ -48,6 +48,9 @@ class Vkuser < ActiveRecord::Base
     data.merge! request_to_data(URI::unescape(request.query))
     headers.each { |key, value| req[key] = value }
     req.set_form_data(data)
+    puts "-----------------"
+    p uri
+    puts "==========="
     res = Net::HTTP.start(uri.host, uri.port) do |http|
       http.request(req)
     end
@@ -157,7 +160,7 @@ class Vkuser < ActiveRecord::Base
   protected
   def Vkuser.request_to_data str
     h = {}
-    str.scan(/[\?&](.+?)=([^\?&]+)/).each do |key, value|
+    str.scan(/[\?&]?(.+?)=([^\?&]+)/).each do |key, value|
       h[key] = value
     end
     return h

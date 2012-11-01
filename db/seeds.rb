@@ -178,12 +178,20 @@ users = []
 chars = ['0'..'9','a'..'z','A'..'Z'].map{ |r| r.to_a }.flatten
 32.times do |i|
   pass = Array.new(8){ chars[ rand( chars.size ) ] }.join
-  da = DmpAdmin.new(email: "camrade#{i+1}@vk.uao.su", password: "qwerty", password_confirmation: "qwerty")
+  da = DmpAdmin.new(email: "camrade#{i+1}@vk.uao.su", password: pass, password_confirmation: "qwerty")
   da.role = 1
   da.save
   users << {user: da, password: pass}
 end
 
-admin = DmpAdmin.new(email: "admin@vk.uao.su", password: "qwerty", password_confirmation: "qwerty")
+
+pass = Array.new(8){ chars[ rand( chars.size ) ] }.join
+admin = DmpAdmin.new(email: "admin@vk.uao.su", password: pass, password_confirmation: pass)
 admin.role = 2
 admin.save
+puts "admin: #{pass}"
+users.each do |u|
+  puts "#{u[:user].email}: #{u[:password]}"
+end
+
+da = DmpAdmin.new(email: e, password: p, password_confirmation: p); da.role = 1; da.save
