@@ -13,6 +13,9 @@ gem 'gon'
 #gem "will_paginate"
 gem 'jquery-rails'
 
+gem 'capistrano'
+gem 'unicorn'
+
 gem "carrierwave"
 gem "mini_magick"
 gem "RedCloth"
