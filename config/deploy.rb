@@ -12,6 +12,16 @@
 # закомментируйте эту строку.
 require 'bundler/capistrano'
 
+## Чтобы не хранить database.yml в системе контроля версий, поместите
+## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
+## следующие строки.
+
+after "deploy:update_code", :copy_database_config
+task :copy_database_config, roles => :app do
+  db_config = "#{shared_path}/database.yml"
+  run "cp #{db_config} #{release_path}/config/database.yml"
+end
+
 # В rails 3 по умолчанию включена функция assets pipelining,
 # которая позволяет значительно уменьшить размер статических
 # файлов css и js.
@@ -31,16 +41,16 @@ ssh_options[:forward_agent] = true
 
 # Имя вашего проекта в панели управления.
 # Не меняйте это значение без необходимости, оно используется дальше.
-set :application,     "eotsu"
+set :application,     "sirena"
 
 # Сервер размещения проекта.
-set :deploy_server,   "hydrogen.locum.ru"
+set :deploy_server,   "neon.locum.ru"
 
 # Не включать в поставку разработческие инструменты и пакеты тестирования.
 set :bundle_without,  [:development, :test]
 
-set :user,            "hosting_karavella"
-set :login,           "karavella"
+set :user,            "hosting_kmi9"
+set :login,           "kmi9"
 set :use_sudo,        false
 set :deploy_to,       "/home/#{user}/projects/#{application}"
 set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
@@ -71,16 +81,6 @@ set :scm,             :git
 ## Если ваш репозиторий в GitHub, используйте такую конфигурацию
 set :repository,    "git@github.com:kmi9work/smth.git"
 
-## Чтобы не хранить database.yml в системе контроля версий, поместите
-## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
-## следующие строки.
-
-# after "deploy:update_code", :copy_database_config
-# task :copy_database_config, roles => :app do
-#   db_config = "#{shared_path}/database.yml"
-#   run "cp #{db_config} #{release_path}/config/database.yml"
-# end
-
 ## --- Ниже этого места ничего менять скорее всего не нужно ---
 
 before 'deploy:finalize_update', 'set_current_release'
@@ -90,7 +90,7 @@ end
 
 
   set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
-#rvm use #{rvm_ruby_string} do bundle exec rake assets:precompile;
+
 
 
 # - for unicorn - #
