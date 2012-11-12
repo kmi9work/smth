@@ -17,11 +17,11 @@
       Содержание сообщения: <br>
       <p class="dmp_content" id='dmp_content' style="display: none;"><%= @dmp_request.content %></p>
       <div class="dmp_view_content"><%= raw RedCloth.new(@dmp_request.content).to_html %></div>
-
+      <!--
       <div id="d_clip_container" style="position:relative;">
         <div id="d_clip_button">Скопировать</div>
       </div>
-      <!-->
+      
       <script type="text/javascript" >
         clip.setText('<%= escape_javascript @dmp_request.content %>');
         clip.glue( 'd_clip_button', 'd_clip_container' );
