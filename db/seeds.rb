@@ -193,5 +193,6 @@ puts "admin: #{pass}"
 users.each do |u|
   puts "#{u[:user].email}: #{u[:password]}"
 end
-
+=begin
 da = DmpAdmin.new(email: e, password: p, password_confirmation: p); da.role = 1; da.save
+=end
