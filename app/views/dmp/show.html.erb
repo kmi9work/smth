@@ -2,11 +2,12 @@
 <head>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "ZeroClipboard" %>
-  <script type="text/javascript">
+  <%#= javascript_include_tag "ZeroClipboard" %>
+  <!--<script type="text/javascript">
     ZeroClipboard.setMoviePath( 'http://localhost:3000/assets/ZeroClipboard.swf' );
     var clip = new ZeroClipboard.Client();
   </script>
+  -->
   <%= csrf_meta_tag %>
 </head>
 <body style="padding: 20px">
@@ -20,11 +21,12 @@
       <div id="d_clip_container" style="position:relative;">
         <div id="d_clip_button">Скопировать</div>
       </div>
+      <!-->
       <script type="text/javascript" >
         clip.setText('<%= escape_javascript @dmp_request.content %>');
         clip.glue( 'd_clip_button', 'd_clip_container' );
       </script>
-
+      -->
       <hr>
       <% if is_admin? %>
         Параметры: <br>
