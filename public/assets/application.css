@@ -1,0 +1,379 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+html, body, div, span, applet, object, iframe,
+blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a{
+  font-size: 14px;
+  color: #727373;
+  font-family: 'Play';
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover{
+  background: #ddd;
+}
+
+
+h1{
+  font-family: 'Play';
+  font-weight: bold;
+  font-size: 52px;
+  margin: 5px 0px;
+}
+h1 a{
+  font-size: 52px;
+  color: #950114;
+  text-decoration: none;
+}
+h1 a:hover{
+  font-family: 'Play';
+  font-weight: bold;
+  color: #950114;
+}
+
+h4{
+  color: #950114;
+}
+
+h3, h4, h5, h6{
+  margin: 2px;
+}
+
+.inline{
+  display: inline-block;
+}
+
+.notice{
+  color: green;
+}
+.error{
+  color: red;
+}
+
+input{
+  margin: 10px;
+}
+
+
+/* line 8, ../../app/assets/stylesheets/articles.css.scss */
+#header {
+  width: 1000px;
+  height: 80px;
+  background: #ddd;
+}
+
+/* line 14, ../../app/assets/stylesheets/articles.css.scss */
+#logo {
+  width: 920px;
+}
+
+/* line 17, ../../app/assets/stylesheets/articles.css.scss */
+#star {
+  display: inline-block;
+  vertical-align: top;
+  left: 930px;
+  width: 70px;
+  height: 70px;
+  float: right;
+}
+
+/* line 26, ../../app/assets/stylesheets/articles.css.scss */
+#navbar {
+  height: 16px;
+  width: 1000px;
+}
+/* line 29, ../../app/assets/stylesheets/articles.css.scss */
+#navbar a {
+  margin-left: 10px;
+}
+
+/* line 34, ../../app/assets/stylesheets/articles.css.scss */
+#main {
+  width: 1000px;
+  height: 760px;
+  border: 1px solid black;
+}
+
+/* line 40, ../../app/assets/stylesheets/articles.css.scss */
+#leftside {
+  vertical-align: top;
+  float: left;
+  display: inline-block;
+  width: 840px;
+  height: 100%;
+  border-right: 2px solid #999;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+/* line 51, ../../app/assets/stylesheets/articles.css.scss */
+#rightside {
+  float: right;
+  vertical-align: top;
+  display: inline-block;
+  width: 150px;
+  left: 850px;
+  height: 100%;
+}
+
+/* line 60, ../../app/assets/stylesheets/articles.css.scss */
+.criterions_filter {
+  display: inline-block;
+  width: 100px;
+  height: 760px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-right: 2px solid #999;
+  top: 0;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+/* line 70, ../../app/assets/stylesheets/articles.css.scss */
+.criterions_filter ul li.selected {
+  background: #ccc;
+}
+
+/* line 75, ../../app/assets/stylesheets/articles.css.scss */
+#articles {
+  overflow-x: hidden;
+  float: left;
+  vertical-align: top;
+  display: inline-block;
+  top: 0px;
+  height: 100%;
+  overflow: auto;
+}
+
+/* line 89, ../../app/assets/stylesheets/articles.css.scss */
+.alert {
+  color: red;
+}
+
+/* line 92, ../../app/assets/stylesheets/articles.css.scss */
+.article_criterion {
+  display: inline-block;
+}
+
+/* line 100, ../../app/assets/stylesheets/articles.css.scss */
+#all_filters_criterions {
+  width: 150px;
+}
+
+/* line 104, ../../app/assets/stylesheets/articles.css.scss */
+#all_selected_filters {
+  width: 150px;
+}
+
+/* line 110, ../../app/assets/stylesheets/articles.css.scss */
+#reset_filter_selection {
+  display: inline-block;
+  top: 0px;
+  color: red;
+}
+
+/* line 116, ../../app/assets/stylesheets/articles.css.scss */
+#selected_filters {
+  border-bottom: 1px solid gray;
+  width: 840px;
+  background: #fff;
+  height: 20px;
+}
+/* line 121, ../../app/assets/stylesheets/articles.css.scss */
+#selected_filters .filter {
+  border-right: 2px solid red;
+}
+
+/* line 125, ../../app/assets/stylesheets/articles.css.scss */
+.filter {
+  width: 100px;
+  height: 20px;
+  text-align: center;
+}
+/* line 129, ../../app/assets/stylesheets/articles.css.scss */
+.filter a {
+  color: #950114;
+}
+
+/* line 133, ../../app/assets/stylesheets/articles.css.scss */
+.filter.selected {
+  display: inline-block;
+  float: left;
+  border-bottom: 2px solid #999;
+}
+
+/* line 142, ../../app/assets/stylesheets/articles.css.scss */
+#criterions ul {
+  position: relative;
+  list-style: none;
+}
+/* line 146, ../../app/assets/stylesheets/articles.css.scss */
+#criterions ul li a {
+  color: #000;
+  display: block;
+  padding: 1px 3px;
+}
+/* line 151, ../../app/assets/stylesheets/articles.css.scss */
+#criterions ul li a.hover, #criterions ul li a.active {
+  background-color: #FFFCB2;
+}
+
+/* line 157, ../../app/assets/stylesheets/articles.css.scss */
+ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #999;
+  cursor: default;
+}
+/* line 164, ../../app/assets/stylesheets/articles.css.scss */
+ul.ui-autocomplete li {
+  background-color: #FFF;
+  border-top: solid 1px #DDD;
+  margin: 0;
+  padding: 0;
+}
+/* line 169, ../../app/assets/stylesheets/articles.css.scss */
+ul.ui-autocomplete li a {
+  color: #000;
+  background-color: #fff;
+  display: block;
+  padding: 3px;
+}
+/* line 175, ../../app/assets/stylesheets/articles.css.scss */
+ul.ui-autocomplete li a.ui-state-hover, ul.ui-autocomplete li a.ui-state-active {
+  background-color: #FFFCB2;
+}
+
+.autocomplete-w1 { background:url(shadow.png) no-repeat bottom right; position:absolute; top:0px; left:0px; margin:8px 0 0 6px; /* IE6 fix: */ _background:none; _margin:0; }
+.autocomplete { border:1px solid #999; background:#FFF; cursor:default; text-align:left; max-height:350px; overflow:auto; margin:-6px 6px 6px -6px; /* IE6 specific: */ _height:350px;  _margin:0; _overflow-x:hidden; }
+.autocomplete .selected { background:#F0F0F0; }
+.autocomplete div { padding:2px 5px; white-space:nowrap; }
+.autocomplete strong { font-weight:normal; color:#3399FF; }
+/* line 5, ../../app/assets/stylesheets/comments.css.scss */
+.comments {
+  margin: 20px;
+  background: #ccc;
+}
+
+/* line 10, ../../app/assets/stylesheets/comments.css.scss */
+.comment {
+  padding-left: 20px;
+  margin-top: 10px;
+  border: 1px solid gray;
+  border-radius: 25px;
+}
+
+/* line 17, ../../app/assets/stylesheets/comments.css.scss */
+.comment_content {
+  width: 80%;
+  display: inline-block;
+}
+
+/* line 21, ../../app/assets/stylesheets/comments.css.scss */
+.comment_button {
+  width: 15%;
+  display: inline-block;
+  vertical-align: center;
+}
+
+/* line 27, ../../app/assets/stylesheets/comments.css.scss */
+.comment_area {
+  width: 800px;
+  height: 100px;
+}
+
+/* line 32, ../../app/assets/stylesheets/comments.css.scss */
+.comment .comment {
+  border: 1px solid green;
+}
+/* line 5, ../../app/assets/stylesheets/dmp.css.scss */
+.ok_ajax {
+  border: 2px inset #eee;
+  background-color: #efe;
+}
+
+/* line 10, ../../app/assets/stylesheets/dmp.css.scss */
+.dmp_content {
+  margin: 10px;
+  font-size: 20px;
+  background: #eee;
+}
+
+/* line 15, ../../app/assets/stylesheets/dmp.css.scss */
+.dmp_view_content {
+  margin: 10px;
+  font-size: 20px;
+  background: #eee;
+}
+
+/* line 20, ../../app/assets/stylesheets/dmp.css.scss */
+#d_clip_button {
+  background: #bfb;
+  color: red;
+  width: 100px;
+}
+
+/* line 25, ../../app/assets/stylesheets/dmp.css.scss */
+.dmp_sent {
+  background: #7f7;
+}

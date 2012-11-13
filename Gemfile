@@ -1,7 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails'
 gem 'haml'
+gem 'execjs'
+
+gem 'therubyracer'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -13,6 +16,9 @@ gem 'gon'
 #gem "will_paginate"
 gem 'jquery-rails'
 
+gem 'capistrano'
+gem 'unicorn'
+
 gem "carrierwave"
 gem "mini_magick"
 gem "RedCloth"
@@ -23,7 +29,7 @@ gem 'justonedb'
 gem 'pg'
 
 #gem 'sqlite3'
-#gem 'pg'
+gem 'pg'
 gem "ckeditor"#, "~> 3.7.1"
 #gem 'acts-as-taggable-on'#, '~> 2.2.2'
 
@@ -38,13 +44,13 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platform => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
