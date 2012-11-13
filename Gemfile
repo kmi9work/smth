@@ -4,7 +4,6 @@ gem 'rails'
 gem 'haml'
 gem 'execjs'
 
-gem 'therubyracer'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -24,12 +23,12 @@ gem "mini_magick"
 gem "RedCloth"
 #gem 'acts_as_tree_rails3'
 
-gem 'justonedb'
+#gem 'justonedb'
 #gem 'cancan'
-gem 'pg'
+#gem 'pg'
 
-#gem 'sqlite3'
-gem 'pg'
+gem 'sqlite3'
+#gem 'pg'
 gem "ckeditor"#, "~> 3.7.1"
 #gem 'acts-as-taggable-on'#, '~> 2.2.2'
 
@@ -48,7 +47,7 @@ group :assets do
   gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platform => :ruby
+  gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier'
 end
