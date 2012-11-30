@@ -15,9 +15,6 @@ gem 'gon'
 #gem "will_paginate"
 gem 'jquery-rails'
 
-gem 'capistrano'
-gem 'unicorn'
-
 gem "carrierwave"
 gem "mini_magick"
 gem "RedCloth"
@@ -50,6 +47,15 @@ group :assets do
   gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier'
+end
+
+group :production do
+  #gem 'unicorn'
+end
+
+group :development do
+  gem 'capistrano-deploy', '~> 0.1.1', :require => nil
+  gem "rvm-capistrano"
 end
 
 gem 'jquery-rails'
